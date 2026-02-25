@@ -1,0 +1,49 @@
+{
+  "version": "2025.0",
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "path",
+          "data": {
+            "pathName": "ComoPelotas"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "DisparePelotas"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "ComoPelotas2"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "DisparePelotas2"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Colgarse"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "ColgarseAhoraSi"
+          }
+        }
+      ]
+    }
+  },
+  "resetOdom": true,
+  "folder": null,
+  "choreoAuto": false
+}

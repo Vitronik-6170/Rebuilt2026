@@ -1,0 +1,70 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 3.9205227272727265,
+        "y": 0.63375
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 4.661357009972095,
+        "y": 0.6726209823809393
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 7.3629999999999995,
+        "y": 0.9944886363636363
+      },
+      "prevControl": {
+        "x": 6.965242167368086,
+        "y": 0.7701416422788737
+      },
+      "nextControl": {
+        "x": 7.834070548261188,
+        "y": 1.2601861357817261
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 7.795886363636363,
+        "y": 2.96309090909091
+      },
+      "prevControl": {
+        "x": 7.75465909090909,
+        "y": 2.3343750000000014
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "MeComiPelotasCentro"
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 17.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 88.71267105875854
+  },
+  "reversed": false,
+  "folder": null,
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": 0.4939168986187679
+  },
+  "useDefaultConstraints": true
+}
