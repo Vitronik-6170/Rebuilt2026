@@ -4,6 +4,8 @@
 
 package frc.robot;
 
+import edu.wpi.first.math.geometry.Pose2d;
+import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
 import edu.wpi.first.math.trajectory.TrapezoidProfile;
@@ -128,4 +130,14 @@ public final class Constants {
   public static final class NeoMotorConstants {
     public static final double kFreeSpeedRpm = 5676;
   }
+
+  //Constantes de las posiciones de la cancha 
+  public static final class FieldPositions {
+    public static final Pose2d kPosition1 = new Pose2d(3.292, 7.220, Rotation2d.fromDegrees(113.869)); // Trinchera izquierda
+    public static final Pose2d kPosition2 = new Pose2d( 3.292, 0.780, Rotation2d.fromDegrees(-113.869)); // Trinchera derecha
+    public static final Pose2d kPosition3 = new Pose2d(2.0, 6.0, Rotation2d.fromDegrees(145.543)); // Cerca de la trinchera izquierda 
+    public static final Pose2d kPosition4 = new Pose2d(2.0, 4, Rotation2d.fromDegrees(180)); // En medio
+    public static final Pose2d kPosition5 = new Pose2d(2.0, 2.0, Rotation2d.fromDegrees(-143.543)); // Cerca de la trinchera derecha
+}
+
 }

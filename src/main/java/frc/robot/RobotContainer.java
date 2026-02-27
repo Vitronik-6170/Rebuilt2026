@@ -6,8 +6,10 @@ package frc.robot;
 
 import frc.robot.Constants.AutoConstants;
 import frc.robot.Constants.DriveConstants;
+import frc.robot.Constants.FieldPositions;
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.ExampleCommand;
+import frc.robot.commands.GoToPose;
 import frc.robot.commands.IntakeMove;
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.ExampleSubsystem;
@@ -90,8 +92,14 @@ public class RobotContainer {
 
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
     // cancelling on release.
-    m_driverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
-    m_driverController.rightBumper().whileTrue(new IntakeMove(m_IntakeExtension, m_Intake));
+    
+    //m_driverController.rightBumper().whileTrue(new IntakeMove(m_IntakeExtension, m_Intake));
+    
+    m_driverController.leftBumper().whileTrue(new GoToPose(FieldPositions.kPosition1, m_DriveSubsystem)); // Trinchera derecha 
+    m_driverController.rightBumper().whileTrue(new GoToPose(FieldPositions.kPosition2, m_DriveSubsystem)); // Trincera izquierda
+    m_driverController.x().whileTrue(new GoToPose(FieldPositions.kPosition3, m_DriveSubsystem)); // Cerca de trinchera izquierda)
+    m_driverController.a().whileTrue(new GoToPose(FieldPositions.kPosition4, m_DriveSubsystem)); // Centro 
+    m_driverController.b().whileTrue(new GoToPose(FieldPositions.kPosition5, m_DriveSubsystem)); // Cerca de trinchera derecha
   }
 
   /**
