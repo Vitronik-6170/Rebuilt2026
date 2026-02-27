@@ -57,6 +57,15 @@ public class Robot extends TimedRobot {
     // block in order for anything in the Command-based framework to work.
     CommandScheduler.getInstance().run();
     SmartDashboard.putNumber("", 0);
+
+    if (m_robotContainer.m_IntakeExtension.getLimitInput()) {
+      m_robotContainer.m_IntakeExtension.setExtensionPosition(0);
+    }else if(m_robotContainer.m_IntakeExtension.getLimitOInput()){
+      m_robotContainer.m_IntakeExtension.setExtensionPosition(120);
+    }
+    //SmartDashboard.putBoolean("Intake Extension Limit Input", m_robotContainer.m_IntakeExtension.getLimitInput());
+    //SmartDashboard.putBoolean("Intake Extension Limit OInput", m_robotContainer.m_IntakeExtension.getLimitOInput());
+
   }
 
   /** This function is called once each time the robot enters Disabled mode. */

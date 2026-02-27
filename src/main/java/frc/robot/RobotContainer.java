@@ -8,8 +8,11 @@ import frc.robot.Constants.AutoConstants;
 import frc.robot.Constants.DriveConstants;
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.ExampleCommand;
+import frc.robot.commands.IntakeMove;
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.ExampleSubsystem;
+import frc.robot.subsystems.Intake;
+import frc.robot.subsystems.IntakeExtension;
 
 import java.util.List;
 
@@ -44,9 +47,15 @@ public class RobotContainer {
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
   public final DriveSubsystem m_DriveSubsystem;
 
+
+  public final IntakeExtension m_IntakeExtension;
+  public final Intake m_Intake;
+
   // Replace with CommandPS4Controller or CommandJoystick if needed
   public static CommandXboxController m_driverController =
       new CommandXboxController(OperatorConstants.kDriverControllerPort);
+  public static CommandXboxController m_mechanismController =
+      new CommandXboxController(OperatorConstants.kMechanismControllerPort);
 
  /* Path follower */
     private final SendableChooser<Command> autoChooser;
@@ -55,6 +64,8 @@ public class RobotContainer {
   public RobotContainer() {
     // Configure the trigger bindings
     m_DriveSubsystem = new DriveSubsystem();
+    m_IntakeExtension = new IntakeExtension();
+    m_Intake = new Intake();
     //SmartDashboard.putData("Auto Mode", autoChooser);
 
     configureBindings();
@@ -80,6 +91,7 @@ public class RobotContainer {
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
     // cancelling on release.
     m_driverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
+    m_driverController.rightBumper().whileTrue(new IntakeMove(m_IntakeExtension, m_Intake));
   }
 
   /**

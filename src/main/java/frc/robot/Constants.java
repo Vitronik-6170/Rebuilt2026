@@ -25,12 +25,35 @@ public final class Constants {
   
   public static class OperatorConstants {
     public static final int kDriverControllerPort = 0;
+    public static final int kMechanismControllerPort = 1;
+  }
+  public static class IntakeConstants {
+    //INTAKE
+    public static final int kIDintakeMotor = 15; //ID of the intake motor
+    public static final boolean kIntakeMotorInverted = true; //inverted or not
+    public static final double kIntakeMotorPower = 0.9; //Power
+
+    //INTAKE EXTENSION
+    public static final int kExtensionLimitInputChannel = 0; //limit 1
+    public static final int kExtensionLimitOInputChannel = 1; //limit 2
+
+    public static final int kIDextensionMotor = 16; //ID of the extension motor
+    public static final boolean kExtensionMotorInverted = true; //inverted or not
+    public static final double kPextensionMotor = 1; //kP
+    public static final double kIextensionMotor = 0; //kI
+    public static final double kDextensionMotor = 0; //kD
+    public static final double kExtensionIZone = 0.0002; //iZone
+    public static final double kExtensionMotorPower = 0.9; //Power
+
+    public static final double kExtensionPositionRetracted = 5; // min position
+    public static final double kExtensionPositionExtended = 120; // max position
+
   }
 
   public static final class DriveConstants {
     // Driving Parameters - Note that these are not the maximum capable speeds of
     // the robot, rather the allowed maximum speeds
-    public static final double kMaxSpeedMetersPerSecond = 4.8;
+    public static final double kMaxSpeedMetersPerSecond = 10;
     public static final double kMaxAngularSpeed = 2 * Math.PI; // radians per second
 
     // Chassis configuration
