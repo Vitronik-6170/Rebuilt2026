@@ -29,6 +29,25 @@ public final class Constants {
     public static final int kDriverControllerPort = 0;
     public static final int kMechanismControllerPort = 1;
   }
+  public static class Shooter{
+    // 2 Motores de Shooter
+    public static final int kIDShooterBackMotor = 13;
+    public static final int kIDShooterFrontMotor = 14;
+
+    public static final double kVoltage = 12; 
+    public static final double kV = 0.0022; 
+    public static final double kPShooter = 0.0004;   
+    public static final double kIShooter = 0.;  
+    public static final double kDShooter = 0;  
+    public static final double iZone = 300; 
+    public static final double powerShooter = 1; 
+
+
+    //Motor Feeder 
+     public static final int kIDFeederMotor = 12;
+
+  }
+
   public static class IntakeConstants {
     //INTAKE
     public static final int kIDintakeMotor = 15; //ID of the intake motor
@@ -139,5 +158,6 @@ public final class Constants {
     public static final Pose2d kPosition4 = new Pose2d(2.0, 4, Rotation2d.fromDegrees(180)); // En medio
     public static final Pose2d kPosition5 = new Pose2d(2.0, 2.0, Rotation2d.fromDegrees(-143.543)); // Cerca de la trinchera derecha
 }
+
 
 }

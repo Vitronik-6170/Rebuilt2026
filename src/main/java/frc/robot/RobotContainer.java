@@ -12,11 +12,14 @@ import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.GoToPose;
 import frc.robot.commands.IntakeMove;
 import frc.robot.commands.OutTakeMove;
+import frc.robot.commands.Shoot;
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.ExampleSubsystem;
+import frc.robot.subsystems.Feeder;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.IntakeExtension;
 import frc.robot.subsystems.LimelightSubsystem;
+import frc.robot.subsystems.Shooter;
 
 import java.util.List;
 
