@@ -4,9 +4,8 @@
 
 package frc.robot;
 
-import frc.robot.Constants.AutoConstants;
-import frc.robot.Constants.DriveConstants;
 import frc.robot.Constants.FieldPositions;
+import frc.robot.Constants.OIConstants;
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.GoToPose;
@@ -17,28 +16,18 @@ import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.IntakeExtension;
 import frc.robot.subsystems.LimelightSubsystem;
-
-import java.util.List;
-
-import edu.wpi.first.math.controller.PIDController;
-import edu.wpi.first.math.controller.ProfiledPIDController;
-import edu.wpi.first.math.geometry.Pose2d;
-import edu.wpi.first.math.geometry.Rotation2d;
-import edu.wpi.first.math.geometry.Translation2d;
-import edu.wpi.first.math.trajectory.Trajectory;
-import edu.wpi.first.math.trajectory.TrajectoryConfig;
-import edu.wpi.first.math.trajectory.TrajectoryGenerator;
+import edu.wpi.first.math.MathUtil;
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.SwerveControllerCommand;
+import edu.wpi.first.wpilibj2.command.InstantCommand;
+import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 
 import com.pathplanner.lib.auto.AutoBuilder;
-import com.pathplanner.lib.auto.NamedCommands;
-import com.pathplanner.lib.commands.FollowPathCommand;
-import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -49,9 +38,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
-  
-  public final DriveSubsystem m_DriveSubsystem;
-   private final LimelightSubsystem m_limelight; // ← agrega esto
+  public final DriveSubsystem m_robotDrive;
+  private final LimelightSubsystem m_limelight; // ← agrega esto
 
 
   public final IntakeExtension m_IntakeExtension;
@@ -69,14 +57,26 @@ public class RobotContainer {
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the trigger bindings
-    m_DriveSubsystem = new DriveSubsystem();
-     m_limelight = new LimelightSubsystem(m_DriveSubsystem); 
+    m_robotDrive = new DriveSubsystem();
+     m_limelight = new LimelightSubsystem(m_robotDrive); 
     m_IntakeExtension = new IntakeExtension();
     m_Intake = new Intake();
 
     //SmartDashboard.putData("Auto Mode", autoChooser);
 
     configureBindings();
+
+     m_robotDrive.setDefaultCommand(
+        // The left stick controls translation of the robot.
+        // Turning is controlled by the X axis of the right stick.
+        new RunCommand(
+            () -> m_robotDrive.drive(
+                -MathUtil.applyDeadband(m_driverController.getLeftY(), OIConstants.kDriveDeadband),
+                -MathUtil.applyDeadband(m_driverController.getLeftX(), OIConstants.kDriveDeadband),
+                -MathUtil.applyDeadband(m_driverController.getRightX(), OIConstants.kDriveDeadband),
+                true),
+            m_robotDrive));
+    
     autoChooser = AutoBuilder.buildAutoChooser();
     SmartDashboard.putData("Auto Chooser", autoChooser);
 
@@ -92,22 +92,20 @@ public class RobotContainer {
    * joysticks}.
    */
   private void configureBindings() {
-    // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
-    new Trigger(m_exampleSubsystem::exampleCondition)
-        .onTrue(new ExampleCommand(m_exampleSubsystem));
-
+    
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
     // cancelling on release.
     
     //m_driverController.rightBumper().whileTrue(new IntakeMove(m_IntakeExtension, m_Intake));
     
-    m_driverController.leftBumper().whileTrue(new GoToPose(FieldPositions.kPosition1, m_DriveSubsystem)); // Trinchera derecha 
-    m_driverController.rightBumper().whileTrue(new GoToPose(FieldPositions.kPosition2, m_DriveSubsystem)); // Trincera izquierda
-    m_driverController.x().whileTrue(new GoToPose(FieldPositions.kPosition3, m_DriveSubsystem)); // Cerca de trinchera izquierda)
-    m_driverController.a().whileTrue(new GoToPose(FieldPositions.kPosition4, m_DriveSubsystem)); // Centro 
-    m_driverController.b().whileTrue(new GoToPose(FieldPositions.kPosition5, m_DriveSubsystem)); // Cerca de trinchera derecha
+    m_driverController.leftBumper().whileTrue(new GoToPose(FieldPositions.kPosition1, m_robotDrive)); // Trinchera derecha 
+    m_driverController.rightBumper().whileTrue(new GoToPose(FieldPositions.kPosition2, m_robotDrive)); // Trincera izquierda
+    m_driverController.x().whileTrue(new GoToPose(FieldPositions.kPosition3, m_robotDrive)); // Cerca de trinchera izquierda)
+    m_driverController.a().whileTrue(new GoToPose(FieldPositions.kPosition4, m_robotDrive)); // Centro 
+    m_driverController.b().whileTrue(new GoToPose(FieldPositions.kPosition5, m_robotDrive)); // Cerca de trinchera derecha
     m_mechanismController.rightBumper().whileTrue(new IntakeMove(m_IntakeExtension, m_Intake));
     m_mechanismController.leftBumper().whileTrue(new OutTakeMove(m_IntakeExtension, m_Intake));
+    m_driverController.y().whileTrue(new RunCommand(() -> m_robotDrive.setX(),m_robotDrive));
   }
 
   /**
