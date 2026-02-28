@@ -39,7 +39,7 @@ public class Drive extends Command {
     if (Math.abs(x) < 0.15 && Math.abs(y) < 0.15 && Math.abs(z) < 0.15) {
       x = 0; y = 0; z = 0;
   }
-    double speed =0.5;
+    double speed =0.3;
     m_SwerveDrive.drive(y*speed, x*speed, z*speed, true);
     //m_SwerveDrive.drive(0.1, 0, 0, true);
     //m_SwerveDrive.drive(0, 0, 0.1, true);

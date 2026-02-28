@@ -137,6 +137,10 @@ AutoBuilder.configure(
     SmartDashboard.putNumber("Pose Y", pose.getY());
     SmartDashboard.putNumber("Pose Heading", pose.getRotation().getDegrees());
     SmartDashboard.putNumber("NAVX", Navx);
+
+    var alliance = DriverStation.getAlliance();
+    SmartDashboard.putString("Alianza detectada", 
+    alliance.isPresent() ? alliance.get().toString() : "NO HAY FMS");
   }
 
   public void addVisionMeasurement(Pose2d visionPose, double timestampSecs) {

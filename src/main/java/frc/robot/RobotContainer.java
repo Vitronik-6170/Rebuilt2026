@@ -16,6 +16,7 @@ import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.IntakeExtension;
+import frc.robot.subsystems.LimelightSubsystem;
 
 import java.util.List;
 
@@ -48,7 +49,9 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
+  
   public final DriveSubsystem m_DriveSubsystem;
+   private final LimelightSubsystem m_limelight; // ← agrega esto
 
 
   public final IntakeExtension m_IntakeExtension;
@@ -67,8 +70,10 @@ public class RobotContainer {
   public RobotContainer() {
     // Configure the trigger bindings
     m_DriveSubsystem = new DriveSubsystem();
+     m_limelight = new LimelightSubsystem(m_DriveSubsystem); 
     m_IntakeExtension = new IntakeExtension();
     m_Intake = new Intake();
+
     //SmartDashboard.putData("Auto Mode", autoChooser);
 
     configureBindings();
