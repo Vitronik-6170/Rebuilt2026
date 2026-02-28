@@ -11,6 +11,7 @@ import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.GoToPose;
 import frc.robot.commands.IntakeMove;
+import frc.robot.commands.OutTakeMove;
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.Intake;
@@ -100,6 +101,8 @@ public class RobotContainer {
     m_driverController.x().whileTrue(new GoToPose(FieldPositions.kPosition3, m_DriveSubsystem)); // Cerca de trinchera izquierda)
     m_driverController.a().whileTrue(new GoToPose(FieldPositions.kPosition4, m_DriveSubsystem)); // Centro 
     m_driverController.b().whileTrue(new GoToPose(FieldPositions.kPosition5, m_DriveSubsystem)); // Cerca de trinchera derecha
+    m_mechanismController.rightBumper().whileTrue(new IntakeMove(m_IntakeExtension, m_Intake));
+    m_mechanismController.leftBumper().whileTrue(new OutTakeMove(m_IntakeExtension, m_Intake));
   }
 
   /**
