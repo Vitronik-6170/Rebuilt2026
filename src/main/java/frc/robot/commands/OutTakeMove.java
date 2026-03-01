@@ -34,14 +34,14 @@ public class OutTakeMove extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_IntakeExtension.setExtensionPosition(-Constants.IntakeConstants.kExtensionPositionExtended);
+   // m_IntakeExtension.setExtensionPosition(-Constants.IntakeConstants.kExtensionPositionExtended);
     m_Intake.setIntakePower(Constants.IntakeConstants.kIntakeMotorPower);
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    m_IntakeExtension.setExtensionPosition(Constants.IntakeConstants.kExtensionPositionRetracted);
+   // m_IntakeExtension.setExtensionPosition(Constants.IntakeConstants.kExtensionPositionRetracted);
     m_Intake.stopIntake();
   }
 

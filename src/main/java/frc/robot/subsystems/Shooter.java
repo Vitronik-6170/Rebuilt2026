@@ -10,6 +10,7 @@ import com.revrobotics.ResetMode;
 import com.revrobotics.spark.SparkClosedLoopController;
 import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.SparkBase.ControlType;
+import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.config.SparkMaxConfig;
 import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 
@@ -38,8 +39,8 @@ public class Shooter extends SubsystemBase {
     ShooterConfig.closedLoop.outputRange(-Constants.Shooter.powerShooter, Constants.Shooter.powerShooter);
     ShooterConfig.inverted(false); 
 
-    shooterBackMotor = new SparkMax(Constants.Shooter.kIDShooterBackMotor, null); 
-    shooterFrontMotor = new SparkMax(Constants.Shooter.kIDShooterFrontMotor, null); 
+    shooterBackMotor = new SparkMax(Constants.Shooter.kIDShooterBackMotor, MotorType.kBrushless); 
+    shooterFrontMotor = new SparkMax(Constants.Shooter.kIDShooterFrontMotor, MotorType.kBrushless); 
 
     shooterBackEncoder = shooterBackMotor.getEncoder(); 
     shooterFrontEncoder = shooterFrontMotor.getEncoder(); 
