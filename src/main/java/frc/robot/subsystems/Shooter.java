@@ -14,6 +14,7 @@ import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.config.SparkMaxConfig;
 import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
@@ -28,20 +29,20 @@ public class Shooter extends SubsystemBase {
   private final SparkClosedLoopController shooterBackController; 
   private final SparkClosedLoopController shooterFrontController; 
 
+  private double m_targetRpm = 0.0;
 
   public Shooter() {
     ShooterConfig = new SparkMaxConfig(); 
     ShooterConfig.idleMode(IdleMode.kCoast); 
-    ShooterConfig.voltageCompensation(Constants.Shooter.kVoltage); 
-    ShooterConfig.closedLoop.feedForward.kV(Constants.Shooter.kV);
-    ShooterConfig.closedLoop.pid(Constants.Shooter.kPShooter,Constants.Shooter.kIShooter, Constants.Shooter.kDShooter); 
-    ShooterConfig.closedLoop.iZone(Constants.Shooter.iZone);
-    ShooterConfig.closedLoop.outputRange(-Constants.Shooter.powerShooter, Constants.Shooter.powerShooter);
+    ShooterConfig.voltageCompensation(Constants.ShooterConstants.kVoltage); 
+    ShooterConfig.closedLoop.feedForward.kV(Constants.ShooterConstants.kV);
+    ShooterConfig.closedLoop.pid(Constants.ShooterConstants.kPShooter,Constants.ShooterConstants.kIShooter, Constants.ShooterConstants.kDShooter); 
+    ShooterConfig.closedLoop.iZone(Constants.ShooterConstants.iZone);
+    ShooterConfig.closedLoop.outputRange(-Constants.ShooterConstants.powerShooter, Constants.ShooterConstants.powerShooter);
     ShooterConfig.inverted(false); 
 
-    shooterBackMotor = new SparkMax(Constants.Shooter.kIDShooterBackMotor, MotorType.kBrushless); 
-    shooterFrontMotor = new SparkMax(Constants.Shooter.kIDShooterFrontMotor, MotorType.kBrushless); 
-
+    shooterBackMotor = new SparkMax(Constants.ShooterConstants.kIDShooterBackMotor, MotorType.kBrushless); 
+    shooterFrontMotor = new SparkMax(Constants.ShooterConstants.kIDShooterFrontMotor, MotorType.kBrushless); 
     shooterBackEncoder = shooterBackMotor.getEncoder(); 
     shooterFrontEncoder = shooterFrontMotor.getEncoder(); 
 
@@ -76,21 +77,36 @@ public class Shooter extends SubsystemBase {
     return false;
   }
 
-  public void shoot(double velocity){
-    shooterBackController.setSetpoint(velocity, ControlType.kVelocity); 
-    shooterFrontController.setSetpoint(velocity, ControlType.kVelocity); 
+  public void shoot(double velocity) {
+    // Clamp para nunca salir del rango seguro
+    m_targetRpm = Math.max(Constants.ShooterConstants.kMinRpm, Math.min(Constants.ShooterConstants.kMaxRpm, velocity));
+    shooterBackController.setSetpoint(m_targetRpm,  ControlType.kVelocity);
+    shooterFrontController.setSetpoint(m_targetRpm, ControlType.kVelocity);
   }
-  public void stop(){
+
+  public void stop() {
+    m_targetRpm = 0.0;
     shooterBackMotor.set(0);
     shooterFrontMotor.set(0);
   }
 
-  //Metodo get velocidades 
+  /** Retorna true si ambos motores alcanzaron las RPM objetivo. */
+  public boolean atTargetRpm() {
+    boolean backOk  = Math.abs(shooterBackEncoder.getVelocity()  - m_targetRpm) < Constants.ShooterConstants.kRpmTolerance;
+    boolean frontOk = Math.abs(shooterFrontEncoder.getVelocity() - m_targetRpm) < Constants.ShooterConstants.kRpmTolerance;
+    return backOk && frontOk;
+  }
+  public double getBackVelocity()  { return shooterBackEncoder.getVelocity();  }
+  public double getFrontVelocity() { return shooterFrontEncoder.getVelocity(); }
 
 
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
+    SmartDashboard.putNumber("Shooter/BackRPM",   getBackVelocity());
+    SmartDashboard.putNumber("Shooter/FrontRPM",  getFrontVelocity());
+    SmartDashboard.putNumber("Shooter/TargetRPM", m_targetRpm);
+    SmartDashboard.putBoolean("Shooter/AtSpeed",  atTargetRpm());
   }
 
   @Override

@@ -29,11 +29,29 @@ public final class Constants {
     public static final int kDriverControllerPort = 0;
     public static final int kMechanismControllerPort = 1;
   }
-  public static class Shooter{
+  public static class PivotConstants {
+    public static final int kIDpivotMotor = 11;
+    public static final boolean kPivotMotorInverted = false;
+    public static final boolean kPivotEncoderInverted = true;
+    public static final double kPivotEncoderPositionConversionFactor = Math.PI*2;
+    public static final double kPivotEncoderZeroOffset = 0;
+    public static final double kPPivot = 1;
+    public static final double kIPivot = 0;
+    public static final double kDPivot = 0;
+    public static final double kPivotPower = 1;
+    public static final boolean kPivotPositionWrappingEnabled = true;   
+    
+    public static final double kMinAngleRad       = 0.1;
+    public static final double kMaxAngleRad       = 2.75;
+    public static final double kAngleToleranceRad = 0.05; // ~3 grados
+  }
+
+  public static class ShooterConstants {
     // 2 Motores de Shooter
     public static final int kIDShooterBackMotor = 13;
     public static final int kIDShooterFrontMotor = 14;
 
+    // Constantes PID y feedforward para el control de velocidad del shooter
     public static final double kVoltage = 12; 
     public static final double kV = 0.0022; 
     public static final double kPShooter = 0.0004;   
@@ -42,6 +60,10 @@ public final class Constants {
     public static final double iZone = 300; 
     public static final double powerShooter = 1; 
 
+    // RPM de margen para considerar "listo"
+    public static final double kRpmTolerance = 150.0;
+    public static final double kMinRpm = 2000.0;
+    public static final double kMaxRpm = 4000.0;
 
     //Motor Feeder 
      public static final int kIDFeederMotor = 12;

@@ -29,14 +29,14 @@ public class Feeder extends SubsystemBase {
   public Feeder() {
     feederConfig = new SparkMaxConfig(); 
     feederConfig.idleMode(IdleMode.kCoast);     
-    feederConfig.voltageCompensation(Constants.Shooter.kVoltage); 
-    feederConfig.closedLoop.feedForward.kV(Constants.Shooter.kV);
-    feederConfig.closedLoop.pid(Constants.Shooter.kPShooter,Constants.Shooter.kIShooter, Constants.Shooter.kDShooter); 
-    feederConfig.closedLoop.iZone(Constants.Shooter.iZone);
-    feederConfig.closedLoop.outputRange(-Constants.Shooter.powerShooter, Constants.Shooter.powerShooter);
+    feederConfig.voltageCompensation(Constants.ShooterConstants.kVoltage); 
+    feederConfig.closedLoop.feedForward.kV(Constants.ShooterConstants.kV);
+    feederConfig.closedLoop.pid(Constants.ShooterConstants.kPShooter,Constants.ShooterConstants.kIShooter, Constants.ShooterConstants.kDShooter); 
+    feederConfig.closedLoop.iZone(Constants.ShooterConstants.iZone);
+    feederConfig.closedLoop.outputRange(-Constants.ShooterConstants.powerShooter, Constants.ShooterConstants.powerShooter);
     feederConfig.inverted(false); 
 
-    feederMotor = new SparkMax(Constants.Shooter.kIDFeederMotor, MotorType.kBrushless); 
+    feederMotor = new SparkMax(Constants.ShooterConstants.kIDFeederMotor, MotorType.kBrushless); 
     feederEncoder = feederMotor.getEncoder(); 
     feederController = feederMotor.getClosedLoopController();
 

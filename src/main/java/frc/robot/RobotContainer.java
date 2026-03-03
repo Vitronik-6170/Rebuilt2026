@@ -119,7 +119,7 @@ public class RobotContainer {
 
     // Shoot
     m_mechanismController.a()
-        .whileTrue(new Shoot(m_Shooter, m_Feeder, m_Pivot));
+        .whileTrue(new Shoot(m_Shooter, m_Feeder, m_Pivot, m_robotDrive));
   }
 
   // ================= AUTO COMMAND =================
