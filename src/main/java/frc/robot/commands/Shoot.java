@@ -36,10 +36,10 @@ public class Shoot extends Command {
     3.517   // kPosition2 (trinchera derecha)
   };
   // Ángulo del pivot en radianes para cada distancia
-  private static final double[] kAngles    = { 0.0, 0.40, 0.70, 0.95, 1.15};
+  private static final double[] kAngles    = { 0.0, 0.5, 0.55};
 
   // RPM del flywheel para cada distancia (calibradas con el ángulo de arriba)
-  private static final double[] kRpms = { 2400, 200, 2800, 3500, 4000 };
+  private static final double[] kRpms = { 2400, 2500, 2500};
 
   // RPM del feeder — constante, solo alimenta cuando el shooter está listo
   private static final double kFeederRpm = 4000;
@@ -117,9 +117,9 @@ public class Shoot extends Command {
     SmartDashboard.putBoolean("Shoot/ShooterReady",   m_shooter.atTargetRpm());
     SmartDashboard.putBoolean("Shoot/Firing", m_pivot.atSetpoint() && m_shooter.atTargetRpm());
     */
-    /*m_pivot.setAngle(0);
-    m_shooter.shoot(2400);
-    m_feeder.prepareShoot(4000);*/
+    m_pivot.setAngle(0.5);
+    m_shooter.shoot(2500);
+    m_feeder.prepareShoot(4000);
   }
 
   // Called once the command ends or is interrupted.
