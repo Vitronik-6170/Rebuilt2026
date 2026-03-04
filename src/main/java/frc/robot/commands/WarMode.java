@@ -5,7 +5,6 @@
 package frc.robot.commands;
 
 import frc.robot.Constants;
-import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.IntakeExtension;
 import frc.robot.subsystems.Pivot;
 import edu.wpi.first.wpilibj2.command.Command;

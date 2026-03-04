@@ -70,6 +70,9 @@ public class Feeder extends SubsystemBase {
   public void prepareShoot(double velocity){
     feederController.setSetpoint(velocity, ControlType.kVelocity); 
   }
+  public double getVelocity(){
+    return feederEncoder.getVelocity();
+  }
   public void stop(){
     feederMotor.set(0);
   }

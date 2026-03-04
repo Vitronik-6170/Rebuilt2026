@@ -14,7 +14,6 @@ import frc.robot.commands.OutTakeMove;
 import frc.robot.commands.Shoot;
 import frc.robot.commands.WarMode;
 import frc.robot.subsystems.DriveSubsystem;
-import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.Feeder;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.IntakeExtension;
@@ -23,22 +22,17 @@ import frc.robot.subsystems.Pivot;
 import frc.robot.subsystems.Shooter;
 
 import edu.wpi.first.math.MathUtil;
-import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
-import edu.wpi.first.wpilibj2.command.button.JoystickButton;
-import edu.wpi.first.wpilibj2.command.button.Trigger;
 
 import com.pathplanner.lib.auto.AutoBuilder;
 
 public class RobotContainer {
 
   // ================= SUBSYSTEMS =================
-  private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
   public final DriveSubsystem m_robotDrive;
   private final LimelightSubsystem m_limelight;
 
@@ -126,7 +120,7 @@ public class RobotContainer {
         .whileTrue(new OutTakeMove(m_IntakeExtension, m_Intake));
 
     // Lock wheels
-    m_driverController.y()
+    m_driverController.povDown()
         .whileTrue(new RunCommand(() -> m_robotDrive.setX(), m_robotDrive));
 
     // Shoot
