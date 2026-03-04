@@ -87,7 +87,12 @@ public class IntakeExtension extends SubsystemBase {
   public boolean getLimitOInput() {
     return !limOInput.get();
   }
-
+  
+  public boolean atSetpoint() {
+    return Math.abs(extensionEncoder.getPosition() 
+        - Constants.IntakeConstants.kExtensionPositionExtended) 
+        < Constants.IntakeConstants.kExtensionTolerance; // ej: 2.0 rotaciones
+  }
   @Override
   public void simulationPeriodic() {
     // This method will be called once per scheduler run during simulation

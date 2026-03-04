@@ -5,26 +5,29 @@
 package frc.robot.commands;
 
 import frc.robot.Constants;
-import frc.robot.subsystems.Intake;
+import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.IntakeExtension;
+import frc.robot.subsystems.Pivot;
 import edu.wpi.first.wpilibj2.command.Command;
 
 /** An example command that uses an example subsystem. */
-public class IntakeMove extends Command {
+public class WarMode extends Command {
   @SuppressWarnings("PMD.UnusedPrivateField")
-  private final IntakeExtension m_IntakeExtension;
-  private final Intake m_Intake;
+  private final Pivot m_Pivot; 
+  private final IntakeExtension m_IntakeExtension; 
+  
 
   /**
-   * Creates a new IntakeMove.
+   * Creates a new ExampleCommand.
    *
    * @param subsystem The subsystem used by this command.
    */
-  public IntakeMove(IntakeExtension intakeExtension, Intake intake) {
-    m_IntakeExtension = intakeExtension;
-    m_Intake = intake;
+  public WarMode(Pivot pivot, IntakeExtension intakeExtension) {
+    m_Pivot = pivot; 
+    m_IntakeExtension = intakeExtension; 
+
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(intakeExtension, intake);
+    addRequirements(pivot,intakeExtension);
   }
 
   // Called when the command is initially scheduled.
@@ -34,22 +37,14 @@ public class IntakeMove extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-     /*m_IntakeExtension.setExtensionPosition(Constants.IntakeConstants.kExtensionPositionExtended);
+    m_Pivot.setAngle(Constants.PivotConstants.kMinAngleRad);
+    m_IntakeExtension.setExtensionPosition(Constants.IntakeConstants.kExtensionPositionRetracted);
 
-    // Solo mueve el intake cuando la extensión ya llegó a su posición
-    if (m_IntakeExtension.atSetpoint()) {
-      m_Intake.setIntakePower(Constants.IntakeConstants.kIntakeMotorPower);
-    }*/
-     m_Intake.setIntakePower(Constants.IntakeConstants.kIntakeMotorPower);
   }
-
-
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {
-    m_Intake.stopIntake();
-  }
+  public void end(boolean interrupted) {}
 
   // Returns true when the command should end.
   @Override

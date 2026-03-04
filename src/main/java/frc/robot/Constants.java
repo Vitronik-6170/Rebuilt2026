@@ -41,8 +41,8 @@ public final class Constants {
     public static final double kPivotPower = 1;
     public static final boolean kPivotPositionWrappingEnabled = true;   
     
-    public static final double kMinAngleRad       = 0.1;
-    public static final double kMaxAngleRad       = 2.75;
+    public static final double kMinAngleRad       = 0.0;
+    public static final double kMaxAngleRad       = 2.85;
     public static final double kAngleToleranceRad = 0.05; // ~3 grados
   }
 
@@ -90,6 +90,8 @@ public final class Constants {
 
     public static final double kExtensionPositionRetracted = 5; // min position
     public static final double kExtensionPositionExtended = 120; // max position
+
+    public static final double kExtensionTolerance = 2.0; 
 
   }
 
@@ -179,7 +181,10 @@ public final class Constants {
     public static final Pose2d kPosition3 = new Pose2d(2.0, 6.0, Rotation2d.fromDegrees(145.543)); // Cerca de la trinchera izquierda 
     public static final Pose2d kPosition4 = new Pose2d(2.0, 4, Rotation2d.fromDegrees(180)); // En medio
     public static final Pose2d kPosition5 = new Pose2d(2.0, 2.0, Rotation2d.fromDegrees(-143.543)); // Cerca de la trinchera derecha
-}
+    public static final Pose2d kHuman = new Pose2d(0.674, 0.623, Rotation2d.fromDegrees(180)); // Para ir al human
+    public static final Pose2d kEndGame= new Pose2d(1.498, 3.911, Rotation2d.fromDegrees(0)); // Endgame 
+
+  }
 
 
 }

@@ -12,7 +12,7 @@ import frc.robot.commands.GoToPose;
 import frc.robot.commands.IntakeMove;
 import frc.robot.commands.OutTakeMove;
 import frc.robot.commands.Shoot;
-
+import frc.robot.commands.WarMode;
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.Feeder;
@@ -106,6 +106,18 @@ public class RobotContainer {
     m_driverController.b()
         .whileTrue(new GoToPose(FieldPositions.kPosition5, m_robotDrive));
 
+    //Botón human 
+    m_driverController.y()
+        .whileTrue(new GoToPose(FieldPositions.kHuman, m_robotDrive));
+
+    //Boton endgame 
+    m_driverController.povUp()
+        .whileTrue(new GoToPose(FieldPositions.kEndGame, m_robotDrive));
+    
+    //Botón modo guerra (se viene defensa padrísima amiguitos :O -> terror llamen a Ozuna)   
+    m_mechanismController.x()
+        .whileTrue(new WarMode(m_Pivot, m_IntakeExtension));
+
     // Intake
     m_mechanismController.rightBumper()
         .whileTrue(new IntakeMove(m_IntakeExtension, m_Intake));
@@ -119,8 +131,9 @@ public class RobotContainer {
 
     // Shoot
     m_mechanismController.a()
-        .whileTrue(new Shoot(m_Shooter, m_Feeder, m_Pivot, m_robotDrive));
-  }
+        .whileTrue(new Shoot(m_Shooter, m_Feeder, m_Pivot, m_robotDrive,m_IntakeExtension));
+  
+}  
 
   // ================= AUTO COMMAND =================
   public Command getAutonomousCommand() {

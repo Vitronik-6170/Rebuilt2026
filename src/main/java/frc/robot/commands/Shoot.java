@@ -4,12 +4,15 @@
 
 package frc.robot.commands;
 
+import frc.robot.Constants;
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.Feeder;
+import frc.robot.subsystems.IntakeExtension;
 import frc.robot.subsystems.Pivot;
 import frc.robot.subsystems.Shooter;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Translation2d;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 
@@ -20,6 +23,8 @@ public class Shoot extends Command {
   private final Feeder m_feeder; 
   private final Pivot m_pivot; 
   private final DriveSubsystem m_drive;
+  private final IntakeExtension m_intakeExtension; 
+
 
   private static final Translation2d HUB_POSITION = new Translation2d(4.625, 4.0345);
 
@@ -31,13 +36,18 @@ public class Shoot extends Command {
     3.517   // kPosition2 (trinchera derecha)
   };
   // Ángulo del pivot en radianes para cada distancia
-  private static final double[] kAngles    = { 0.30, 0.50, 0.70, 0.95, 1.15, 1.35 };
+  private static final double[] kAngles    = { 0.0, 0.40, 0.70, 0.95, 1.15};
 
   // RPM del flywheel para cada distancia (calibradas con el ángulo de arriba)
-  private static final double[] kRpms = { 2000, 2200, 2800, 3500, 4000 };
+  private static final double[] kRpms = { 2400, 200, 2800, 3500, 4000 };
 
   // RPM del feeder — constante, solo alimenta cuando el shooter está listo
   private static final double kFeederRpm = 4000;
+
+  //variables de retraerse y contraerse: 
+  private final Timer m_firingTimer = new Timer();
+  private boolean m_firingStarted  = false;
+  private boolean m_intakeRetracted = false;
 
 
   /**
@@ -45,25 +55,31 @@ public class Shoot extends Command {
    *
    * @param subsystem The subsystem used by this command.
    */
-  public Shoot(Shooter shooter, Feeder feeder, Pivot pivot, DriveSubsystem drive) {
+  public Shoot(Shooter shooter, Feeder feeder, Pivot pivot, DriveSubsystem drive, IntakeExtension intakeExtension) {
     m_shooter = shooter;
     m_feeder = feeder;
     m_pivot = pivot; 
     m_drive = drive;
+    m_intakeExtension = intakeExtension; 
 
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(shooter,feeder,pivot);
+    addRequirements(shooter,feeder,pivot,intakeExtension);
   }
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {}
+  public void initialize() {
+     m_firingStarted   = false;
+    m_intakeRetracted = false;
+    m_firingTimer.reset();
+    m_firingTimer.stop();
+  }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
     // 1. Calculamos distancia actual al hub usando la pose global
-    Pose2d robotPose = m_drive.getPose();
+    /*Pose2d robotPose = m_drive.getPose();
     double distance = Math.hypot(
         HUB_POSITION.getX() - robotPose.getX(),
         HUB_POSITION.getY() - robotPose.getY());
@@ -80,6 +96,15 @@ public class Shoot extends Command {
     //    Esto evita disparos imprecisos mientras el sistema está ajustando
     if (m_pivot.atSetpoint() && m_shooter.atTargetRpm()) {
       m_feeder.prepareShoot(kFeederRpm);
+      if (!m_firingStarted) {
+        m_firingStarted = true;
+        m_firingTimer.reset();
+        m_firingTimer.start();
+      }
+      if (!m_intakeRetracted && m_firingTimer.hasElapsed(2.0)) {
+        m_intakeExtension.setExtensionPosition(0);
+        m_intakeRetracted = true;
+      }
     } else {
       m_feeder.stop(); // Esperamos a que todo esté listo
     }
@@ -91,7 +116,10 @@ public class Shoot extends Command {
     SmartDashboard.putBoolean("Shoot/PivotReady",     m_pivot.atSetpoint());
     SmartDashboard.putBoolean("Shoot/ShooterReady",   m_shooter.atTargetRpm());
     SmartDashboard.putBoolean("Shoot/Firing", m_pivot.atSetpoint() && m_shooter.atTargetRpm());
-
+    */
+    /*m_pivot.setAngle(0);
+    m_shooter.shoot(2400);
+    m_feeder.prepareShoot(4000);*/
   }
 
   // Called once the command ends or is interrupted.
@@ -99,6 +127,7 @@ public class Shoot extends Command {
   public void end(boolean interrupted) {
     m_shooter.stop();
     m_feeder.stop();
+    m_pivot.setAngle(Constants.PivotConstants.kMinAngleRad);
   }
 
   // Returns true when the command should end.
