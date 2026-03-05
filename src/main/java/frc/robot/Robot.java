@@ -55,10 +55,10 @@ public class Robot extends TimedRobot {
 
     if (m_robotContainer.m_IntakeExtension.getLimitInput()) {
       m_robotContainer.m_IntakeExtension.setEncoderPosition(0);
-      m_robotContainer.m_IntakeExtension.setExtensionPosition(0);
+      //m_robotContainer.m_IntakeExtension.setExtensionPosition(0);
     }else if(m_robotContainer.m_IntakeExtension.getLimitOInput()){
-      m_robotContainer.m_IntakeExtension.setEncoderPosition(0);
-      m_robotContainer.m_IntakeExtension.setExtensionPosition(120);
+      m_robotContainer.m_IntakeExtension.setEncoderPosition(Constants.IntakeConstants.kExtensionPositionExtended);
+      //m_robotContainer.m_IntakeExtension.setExtensionPosition(Constants.IntakeConstants.kExtensionPositionExtended);
     }
     SmartDashboard.putBoolean("Intake Extension Limit Input", m_robotContainer.m_IntakeExtension.getLimitInput());
     SmartDashboard.putBoolean("Intake Extension Limit OInput", m_robotContainer.m_IntakeExtension.getLimitOInput());

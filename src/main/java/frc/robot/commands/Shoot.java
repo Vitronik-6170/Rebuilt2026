@@ -31,11 +31,11 @@ public class Shoot extends Command {
   private static final double[] kDistances = {
     2.625,  // kPosition4 (centro)
     3.279,  // kPosition3 (cerca trinchera izquierda)
-    3.321,  // kPosition5 (cerca trinchera derecha)
-    3.453,  // kPosition1 (trinchera izquierda)
-    3.517   // kPosition2 (trinchera derecha)
+    3.321  // kPosition5 (cerca trinchera derecha)
+    //3.453,  // kPosition1 (trinchera izquierda)
+    //3.517   // kPosition2 (trinchera derecha)
   };
-  // Ángulo del pivot en radianes para cada distancia
+  // Angulo del pivot en radianes para cada distancia
   private static final double[] kAngles    = { 0.0, 0.5, 0.55};
 
   // RPM del flywheel para cada distancia (calibradas con el ángulo de arriba)
@@ -79,7 +79,7 @@ public class Shoot extends Command {
   @Override
   public void execute() {
     // 1. Calculamos distancia actual al hub usando la pose global
-    /*Pose2d robotPose = m_drive.getPose();
+    Pose2d robotPose = m_drive.getPose();
     double distance = Math.hypot(
         HUB_POSITION.getX() - robotPose.getX(),
         HUB_POSITION.getY() - robotPose.getY());
@@ -116,10 +116,10 @@ public class Shoot extends Command {
     SmartDashboard.putBoolean("Shoot/PivotReady",     m_pivot.atSetpoint());
     SmartDashboard.putBoolean("Shoot/ShooterReady",   m_shooter.atTargetRpm());
     SmartDashboard.putBoolean("Shoot/Firing", m_pivot.atSetpoint() && m_shooter.atTargetRpm());
-    */
-    m_pivot.setAngle(0.5);
-    m_shooter.shoot(2500);
-    m_feeder.prepareShoot(4000);
+    
+    // m_pivot.setAngle(0.5);
+    // m_shooter.shoot(2500);
+    // m_feeder.prepareShoot(4000);
   }
 
   // Called once the command ends or is interrupted.

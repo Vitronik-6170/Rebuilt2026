@@ -34,14 +34,14 @@ public final class Constants {
     public static final boolean kPivotMotorInverted = false;
     public static final boolean kPivotEncoderInverted = true;
     public static final double kPivotEncoderPositionConversionFactor = Math.PI*2;
-    public static final double kPivotEncoderZeroOffset = 0;
+    public static final double kPivotEncoderZeroOffset = 0.9521756;
     public static final double kPPivot = 1;
     public static final double kIPivot = 0;
     public static final double kDPivot = 0;
     public static final double kPivotPower = 1;
     public static final boolean kPivotPositionWrappingEnabled = true;   
     
-    public static final double kMinAngleRad       = 0.0;
+    public static final double kMinAngleRad       = 0.02;
     public static final double kMaxAngleRad       = 2.85;
     public static final double kAngleToleranceRad = 0.05; // ~3 grados
   }
@@ -61,7 +61,7 @@ public final class Constants {
     public static final double powerShooter = 1; 
 
     // RPM de margen para considerar "listo"
-    public static final double kRpmTolerance = 150.0;
+    public static final double kRpmTolerance = 250.0;
     public static final double kMinRpm = 2000.0;
     public static final double kMaxRpm = 4000.0;
 
@@ -88,7 +88,7 @@ public final class Constants {
     public static final double kExtensionIZone = 0.0002; //iZone
     public static final double kExtensionMotorPower = 0.9; //Power
 
-    public static final double kExtensionPositionRetracted = 5; // min position
+    public static final double kExtensionPositionRetracted = 0.5; // min position
     public static final double kExtensionPositionExtended = 120; // max position
 
     public static final double kExtensionTolerance = 2.0; 

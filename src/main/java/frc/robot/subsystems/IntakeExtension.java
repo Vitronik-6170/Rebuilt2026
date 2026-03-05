@@ -42,6 +42,7 @@ public class IntakeExtension extends SubsystemBase {
     extensionConfig.closedLoop.outputRange(-Constants.IntakeConstants.kExtensionMotorPower, Constants.IntakeConstants.kExtensionMotorPower);
     extensionMotor = new SparkMax(Constants.IntakeConstants.kIDextensionMotor, MotorType.kBrushless);
     extensionEncoder = extensionMotor.getEncoder();
+    extensionEncoder.setPosition(0);
     extensionController = extensionMotor.getClosedLoopController();
 
     extensionMotor.configure(extensionConfig, ResetMode.kResetSafeParameters, PersistMode.kNoPersistParameters);

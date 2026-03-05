@@ -26,11 +26,11 @@ public class GoToPose extends Command {
         m_drive = drive;
         // OJO: NO pongas addRequirements aquí
         // el comando interno de PathPlanner ya toma el subsistema
+        m_pathfindingCommand = AutoBuilder.pathfindToPose(m_targetPose, kConstraints);
     }
 
     @Override
     public void initialize() {
-        m_pathfindingCommand = AutoBuilder.pathfindToPose(m_targetPose, kConstraints);
         m_pathfindingCommand.initialize();
     }
 
