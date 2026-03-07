@@ -39,7 +39,7 @@ public class Shoot extends Command {
   private static final double[] kAngles    = { 0.0, 0.5, 0.55};
 
   // RPM del flywheel para cada distancia (calibradas con el ángulo de arriba)
-  private static final double[] kRpms = { 2300, 2500, 2500};
+  private static final double[] kRpms = { 2400, 2500, 2500};
 
   // RPM del feeder — constante, solo alimenta cuando el shooter está listo
   private static final double kFeederRpm = 4000;
