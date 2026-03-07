@@ -37,10 +37,10 @@ public class IntakeMove extends Command {
     
     m_IntakeExtension.setExtensionPosition(Constants.IntakeConstants.kExtensionPositionExtended);
     // Solo mueve el intake cuando la extensión ya llegó a su posición
-    // if (m_IntakeExtension.atSetpoint()) {
-    //   m_Intake.setIntakePower(Constants.IntakeConstants.kIntakeMotorPower);
-    // }
-    m_Intake.setIntakePower(Constants.IntakeConstants.kIntakeMotorPower);
+     if (m_IntakeExtension.atSetpoint()) {
+       m_Intake.setIntakePower(Constants.IntakeConstants.kIntakeMotorPower);
+     }
+    //m_Intake.setIntakePower(Constants.IntakeConstants.kIntakeMotorPower);
   }
 
 

@@ -4,27 +4,29 @@
 
 package frc.robot.commands;
 
-import frc.robot.Constants;
-import frc.robot.subsystems.Intake;
-import frc.robot.subsystems.IntakeExtension;
+import frc.robot.subsystems.ExampleSubsystem;
+import frc.robot.subsystems.Feeder;
+import frc.robot.subsystems.Pivot;
+import frc.robot.subsystems.Shooter;
 import edu.wpi.first.wpilibj2.command.Command;
 
 /** An example command that uses an example subsystem. */
-public class OutTakeMove extends Command {
+public class Jordan extends Command {
   @SuppressWarnings("PMD.UnusedPrivateField")
-  private final IntakeExtension m_IntakeExtension;
-  private final Intake m_Intake;
-
+  private final Shooter m_shooter;
+  private final Feeder m_feeder;
+  private final Pivot m_pivot;
   /**
-   * Creates a new IntakeMove.
+   * Creates a new ExampleCommand.
    *
    * @param subsystem The subsystem used by this command.
    */
-  public OutTakeMove(IntakeExtension intakeExtension, Intake intake) {
-    m_IntakeExtension = intakeExtension;
-    m_Intake = intake;
+  public Jordan(Shooter shooter, Feeder feeder, Pivot pivot) {
+    m_shooter = shooter;
+    m_feeder = feeder;
+    m_pivot = pivot;
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(intakeExtension, intake);
+    addRequirements(m_shooter, m_feeder, m_pivot);
   }
 
   // Called when the command is initially scheduled.
@@ -34,19 +36,16 @@ public class OutTakeMove extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    
-    m_IntakeExtension    .setExtensionPosition(Constants.IntakeConstants.kExtensionPositionExtended);
-    // Solo mueve el intake cuando la extensión ya llegó a su posición
-     if (m_IntakeExtension.atSetpoint()) {
-       m_Intake.setIntakePower(-Constants.IntakeConstants.kIntakeMotorPower);
-     }
-    //m_Intake.setIntakePower(-Constants.IntakeConstants.kIntakeMotorPower);
+    m_pivot.setAngle(2.7);
+    m_shooter.shoot(4000);
+    m_feeder.prepareShoot(4000);
   }
-
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    m_Intake.stopIntake();
+    m_feeder.stop();
+    m_shooter.stop();
+    m_pivot.setAngle(0);
   }
 
   // Returns true when the command should end.

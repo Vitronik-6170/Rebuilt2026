@@ -34,12 +34,12 @@ public final class Constants {
     public static final boolean kPivotMotorInverted = false;
     public static final boolean kPivotEncoderInverted = true;
     public static final double kPivotEncoderPositionConversionFactor = Math.PI*2;
-    public static final double kPivotEncoderZeroOffset = 0.9521756;
+    public static final double kPivotEncoderZeroOffset = 0.8536184;
     public static final double kPPivot = 1;
     public static final double kIPivot = 0;
     public static final double kDPivot = 0;
     public static final double kPivotPower = 1;
-    public static final boolean kPivotPositionWrappingEnabled = true;   
+    public static final boolean kPivotPositionWrappingEnabled = true;
     
     public static final double kMinAngleRad       = 0.02;
     public static final double kMaxAngleRad       = 2.85;
@@ -88,7 +88,7 @@ public final class Constants {
     public static final double kExtensionIZone = 0.0002; //iZone
     public static final double kExtensionMotorPower = 0.9; //Power
 
-    public static final double kExtensionPositionRetracted = 0.5; // min position
+    public static final double kExtensionPositionRetracted = 0.1; // min position
     public static final double kExtensionPositionExtended = 120; // max position
 
     public static final double kExtensionTolerance = 2.0; 
@@ -179,7 +179,7 @@ public final class Constants {
     public static final Pose2d kPosition1 = new Pose2d(3.292, 7.220, Rotation2d.fromDegrees(113.869)); // Trinchera izquierda
     public static final Pose2d kPosition2 = new Pose2d( 3.292, 0.780, Rotation2d.fromDegrees(-113.869)); // Trinchera derecha
     public static final Pose2d kPosition3 = new Pose2d(2.0, 6.0, Rotation2d.fromDegrees(145.543)); // Cerca de la trinchera izquierda 
-    public static final Pose2d kPosition4 = new Pose2d(2.0, 4, Rotation2d.fromDegrees(180)); // En medio
+    public static final Pose2d kPosition4 = new Pose2d(1.8, 4, Rotation2d.fromDegrees(180)); // En medio
     public static final Pose2d kPosition5 = new Pose2d(2.0, 2.0, Rotation2d.fromDegrees(-143.543)); // Cerca de la trinchera derecha
     public static final Pose2d kHuman = new Pose2d(0.674, 0.623, Rotation2d.fromDegrees(180)); // Para ir al human
     public static final Pose2d kEndGame= new Pose2d(1.498, 3.911, Rotation2d.fromDegrees(0)); // Endgame 

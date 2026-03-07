@@ -29,7 +29,7 @@ public class Shoot extends Command {
   private static final Translation2d HUB_POSITION = new Translation2d(4.625, 4.0345);
 
   private static final double[] kDistances = {
-    2.625,  // kPosition4 (centro)
+    2.825,  // kPosition4 (centro)
     3.279,  // kPosition3 (cerca trinchera izquierda)
     3.321  // kPosition5 (cerca trinchera derecha)
     //3.453,  // kPosition1 (trinchera izquierda)
@@ -39,7 +39,7 @@ public class Shoot extends Command {
   private static final double[] kAngles    = { 0.0, 0.5, 0.55};
 
   // RPM del flywheel para cada distancia (calibradas con el ángulo de arriba)
-  private static final double[] kRpms = { 2400, 2500, 2500};
+  private static final double[] kRpms = { 2300, 2500, 2500};
 
   // RPM del feeder — constante, solo alimenta cuando el shooter está listo
   private static final double kFeederRpm = 4000;

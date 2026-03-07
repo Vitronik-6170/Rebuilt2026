@@ -48,7 +48,7 @@ public class Pivot extends SubsystemBase {
     pivotEncoder = pivotMotor.getAbsoluteEncoder();
     pivotController  = pivotMotor.getClosedLoopController(); 
 
-    pivotMotor.configure(pivotConfig, ResetMode.kNoResetSafeParameters, PersistMode.kPersistParameters);
+    pivotMotor.configure(pivotConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
 
   }
 

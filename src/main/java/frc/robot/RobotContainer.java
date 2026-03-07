@@ -10,6 +10,7 @@ import frc.robot.Constants.OperatorConstants;
 
 import frc.robot.commands.GoToPose;
 import frc.robot.commands.IntakeMove;
+import frc.robot.commands.Jordan;
 import frc.robot.commands.OutTakeMove;
 import frc.robot.commands.Shoot;
 import frc.robot.commands.WarMode;
@@ -84,6 +85,8 @@ public class RobotContainer {
   // ================= BUTTON BINDINGS =================
   private void configureBindings() {
 
+    // ================= Driver chassis control =================
+
     // Posiciones predefinidas
     m_driverController.leftBumper()
         .whileTrue(new GoToPose(FieldPositions.kPosition1, m_robotDrive));
@@ -108,25 +111,32 @@ public class RobotContainer {
     m_driverController.povUp()
         .whileTrue(new GoToPose(FieldPositions.kEndGame, m_robotDrive));
     
-    //Botón modo guerra (se viene defensa padrísima amiguitos :O -> terror llamen a Ozuna)   
-    m_mechanismController.x()
-        .whileTrue(new WarMode(m_Pivot, m_IntakeExtension));
-
-    // Intake
-    m_mechanismController.rightBumper()
-        .whileTrue(new IntakeMove(m_IntakeExtension, m_Intake));
-
-    m_mechanismController.leftBumper()
-        .whileTrue(new OutTakeMove(m_IntakeExtension, m_Intake));
-
     // Lock wheels
     m_driverController.povDown()
         .whileTrue(new RunCommand(() -> m_robotDrive.setX(), m_robotDrive));
 
-    // Shoot
+    // ================= Driver mechanism control =================
+
+    //Botón modo guerra (se viene defensa padrísima amiguitos :O -> terror llamen a Ozuna)   
+    m_mechanismController.y()
+        .whileTrue(new WarMode(m_Pivot, m_IntakeExtension));
+
+    // Intake (comer pelotas)
     m_mechanismController.a()
+        .whileTrue(new IntakeMove(m_IntakeExtension, m_Intake));
+
+    // Intake (vomitar pelotas)
+    m_mechanismController.b()
+        .whileTrue(new OutTakeMove(m_IntakeExtension, m_Intake));
+
+    // Shoot (normal)
+    m_mechanismController.rightBumper()
         .whileTrue(new Shoot(m_Shooter, m_Feeder, m_Pivot, m_robotDrive,m_IntakeExtension));
-  
+    
+    // Shoot (desde el centro)
+    m_mechanismController.leftBumper()
+        .whileTrue(new Jordan(m_Shooter, m_Feeder, m_Pivot));
+
 }  
 
   // ================= AUTO COMMAND =================
