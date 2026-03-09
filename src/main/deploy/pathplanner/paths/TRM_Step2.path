@@ -3,29 +3,29 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 0.6120340909083373,
-        "y": 0.6543636363649101
+        "x": 5.950965909090908,
+        "y": 0.5822159090909098
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.6120340909083373,
-        "y": 0.6543636363649101
+        "x": 6.7755113636363635,
+        "y": 0.5719090909090914
       },
       "isLocked": false,
-      "linkedName": "Human"
+      "linkedName": "TRM_Step1_Final"
     },
     {
       "anchor": {
-        "x": 2.178670454545454,
-        "y": 3.1486136363636366
+        "x": 8.259693181818182,
+        "y": 2.952784090909091
       },
       "prevControl": {
-        "x": 1.178670454545454,
-        "y": 3.1486136363636366
+        "x": 8.290613636363636,
+        "y": 2.1797727272727276
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "Preparar"
+      "linkedName": "TMR_Step2_F"
     }
   ],
   "rotationTargets": [],
@@ -42,13 +42,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 0.36262667396251513
+    "rotation": 90.0
   },
   "reversed": false,
-  "folder": "PathPasados",
+  "folder": "Auto_TrenchRightMejorado",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 180.0
+    "rotation": 9.462
   },
   "useDefaultConstraints": true
 }

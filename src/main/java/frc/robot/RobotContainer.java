@@ -30,6 +30,7 @@ import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 
 import com.pathplanner.lib.auto.AutoBuilder;
+import com.pathplanner.lib.auto.NamedCommands;
 
 public class RobotContainer {
 
@@ -65,6 +66,11 @@ public class RobotContainer {
     m_Feeder = new Feeder();
     m_Pivot = new Pivot();
 
+
+    NamedCommands.registerCommand("Shoot", new Shoot(m_Shooter, m_Feeder, m_Pivot, m_robotDrive, m_IntakeExtension));
+    NamedCommands.registerCommand("TakeFuel", new IntakeMove(m_IntakeExtension, m_Intake));
+        
+
     // Configurar botones
     configureBindings();
 
@@ -72,9 +78,9 @@ public class RobotContainer {
     m_robotDrive.setDefaultCommand(
         new RunCommand(
                 () -> m_robotDrive.drive(
-                -MathUtil.applyDeadband(m_driverController.getLeftY(), OIConstants.kDriveDeadband),
-                -MathUtil.applyDeadband(m_driverController.getLeftX(), OIConstants.kDriveDeadband),
-                -MathUtil.applyDeadband(m_driverController.getRightX(), OIConstants.kDriveDeadband),
+                -MathUtil.applyDeadband(m_driverController.getLeftY()*Constants.DriveConstants.powerChassis, OIConstants.kDriveDeadband),
+                -MathUtil.applyDeadband(m_driverController.getLeftX()*Constants.DriveConstants.powerChassis, OIConstants.kDriveDeadband),
+                -MathUtil.applyDeadband(m_driverController.getRightX()*Constants.DriveConstants.powerChassis, OIConstants.kDriveDeadband),
                 true),
             m_robotDrive));
     // Auto chooser con PathPlanner

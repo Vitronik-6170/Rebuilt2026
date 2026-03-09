@@ -1,0 +1,95 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 8.197852272727271,
+        "y": 3.0043181818181823
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 8.21846590909091,
+        "y": 2.1488522727272734
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 6.466306818181818,
+        "y": 0.7574318181818183
+      },
+      "prevControl": {
+        "x": 7.035887179484887,
+        "y": 0.8184582854642893
+      },
+      "nextControl": {
+        "x": 5.889124999999999,
+        "y": 0.6955909090909099
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 3.858681818181818,
+        "y": 0.6543636363636369
+      },
+      "prevControl": {
+        "x": 4.971818181818182,
+        "y": 0.6028295454545458
+      },
+      "nextControl": {
+        "x": 3.189138726059628,
+        "y": 0.6853610017396644
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 2.0,
+        "y": 2.0
+      },
+      "prevControl": {
+        "x": 1.7457840909090914,
+        "y": 1.8190340909090912
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "TR_Step2_Final"
+    }
+  ],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 0.5,
+      "rotationDegrees": 0.0
+    },
+    {
+      "waypointRelativePos": 2.3443396226415105,
+      "rotationDegrees": 0.0
+    }
+  ],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 4.0,
+    "maxAcceleration": 17.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": -143.543
+  },
+  "reversed": false,
+  "folder": "Auto_TrenchRight",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": 91.08092418666061
+  },
+  "useDefaultConstraints": true
+}

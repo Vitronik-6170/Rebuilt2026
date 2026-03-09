@@ -15,8 +15,8 @@ public class GoToPose extends Command {
 
     // Ajusta estas constraints a tu robot
     private static final PathConstraints kConstraints = new PathConstraints(
-        2.0,  // maxVelocityMps
-        2.0,  // maxAccelerationMpsSq
+        4.0,  // maxVelocityMps
+        4.0,  // maxAccelerationMpsSq
         Units.degreesToRadians(360),  // maxAngularVelocityRps
         Units.degreesToRadians(360)   // maxAngularAccelerationRpsSq
     );

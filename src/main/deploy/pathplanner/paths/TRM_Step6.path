@@ -1,0 +1,106 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 7.538215909090908,
+        "y": 3.4268977272727272
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 7.600056818181818,
+        "y": 2.4683636363636365
+      },
+      "isLocked": false,
+      "linkedName": "TMR_Step5_F"
+    },
+    {
+      "anchor": {
+        "x": 6.538454545454544,
+        "y": 0.8398863636363638
+      },
+      "prevControl": {
+        "x": 7.395033804835222,
+        "y": 1.3458315269902297
+      },
+      "nextControl": {
+        "x": 5.802975280313985,
+        "y": 0.40546984832876076
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 3.7968409090909088,
+        "y": 0.6234431818181827
+      },
+      "prevControl": {
+        "x": 4.889363636363636,
+        "y": 0.6234431818181827
+      },
+      "nextControl": {
+        "x": 2.9769163945047805,
+        "y": 0.6234431818181828
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 2.0,
+        "y": 2.0
+      },
+      "prevControl": {
+        "x": 1.853139156726645,
+        "y": 1.7976836815453605
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "TR_Step2_Final"
+    }
+  ],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 1.0849056603773584,
+      "rotationDegrees": 0.0
+    },
+    {
+      "waypointRelativePos": 2.4150943396226436,
+      "rotationDegrees": 0.0
+    }
+  ],
+  "constraintZones": [],
+  "pointTowardsZones": [
+    {
+      "fieldPosition": {
+        "x": 4.626,
+        "y": 4.021
+      },
+      "rotationOffset": 180.0,
+      "minWaypointRelativePos": 2.4614003590664275,
+      "maxWaypointRelativePos": 3.0,
+      "name": "Point Towards Zone"
+    }
+  ],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 4.0,
+    "maxAcceleration": 17.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": -143.543
+  },
+  "reversed": false,
+  "folder": "Auto_TrenchRightMejorado",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": 91.301952672579
+  },
+  "useDefaultConstraints": true
+}

@@ -1,0 +1,95 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 2.0,
+        "y": 2.0
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 2.2450751668077844,
+        "y": 1.4024418512339252
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 3.7865340909090905,
+        "y": 0.5409886363636371
+      },
+      "prevControl": {
+        "x": 2.972295454545454,
+        "y": 0.5203750000000003
+      },
+      "nextControl": {
+        "x": 4.839347464061164,
+        "y": 0.5676421394814118
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 6.610602272727273,
+        "y": 0.7162045454545456
+      },
+      "prevControl": {
+        "x": 5.789164981133421,
+        "y": 0.38168164201247556
+      },
+      "nextControl": {
+        "x": 7.441966501205464,
+        "y": 1.0547701041093975
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 8.20815909090909,
+        "y": 3.447511363636364
+      },
+      "prevControl": {
+        "x": 8.239079545454544,
+        "y": 2.9527840909090908
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "TR_Step3_F"
+    }
+  ],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 0.8254716981132075,
+      "rotationDegrees": 0.0
+    },
+    {
+      "waypointRelativePos": 1.8820754716981138,
+      "rotationDegrees": 0.0
+    }
+  ],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 4.0,
+    "maxAcceleration": 17.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 90.0
+  },
+  "reversed": false,
+  "folder": "Auto_TrenchRight",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": -143.543
+  },
+  "useDefaultConstraints": true
+}
