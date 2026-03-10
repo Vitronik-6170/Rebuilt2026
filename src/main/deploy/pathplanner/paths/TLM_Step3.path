@@ -3,45 +3,45 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 8.197852272727271,
-        "y": 3.0043181818181823
+        "x": 8.239079545454544,
+        "y": 5.395499999999999
       },
       "prevControl": null,
       "nextControl": {
-        "x": 8.21846590909091,
-        "y": 2.1488522727272734
+        "x": 7.958685568381408,
+        "y": 6.265492622934144
+      },
+      "isLocked": false,
+      "linkedName": "TLM_Step2_Final"
+    },
+    {
+      "anchor": {
+        "x": 6.734284090909091,
+        "y": 7.2095
+      },
+      "prevControl": {
+        "x": 7.4921212845593725,
+        "y": 6.870318629887162
+      },
+      "nextControl": {
+        "x": 5.9632415150728795,
+        "y": 7.554591636407784
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 6.466306818181818,
-        "y": 0.7574318181818183
+        "x": 3.415488636363636,
+        "y": 7.333181818181819
       },
       "prevControl": {
-        "x": 7.035887179484887,
-        "y": 0.8184582854642893
+        "x": 4.1148147550483865,
+        "y": 7.609705457835082
       },
       "nextControl": {
-        "x": 5.889124999999999,
-        "y": 0.6955909090909099
-      },
-      "isLocked": false,
-      "linkedName": null
-    },
-    {
-      "anchor": {
-        "x": 3.858681818181818,
-        "y": 0.6543636363636369
-      },
-      "prevControl": {
-        "x": 4.971818181818182,
-        "y": 0.6028295454545458
-      },
-      "nextControl": {
-        "x": 3.189138726059628,
-        "y": 0.6853610017396644
+        "x": 2.770487532858522,
+        "y": 7.078139073522074
       },
       "isLocked": false,
       "linkedName": null
@@ -49,29 +49,40 @@
     {
       "anchor": {
         "x": 2.0,
-        "y": 2.0
+        "y": 6.0
       },
       "prevControl": {
-        "x": 1.7457840909090914,
-        "y": 1.8190340909090912
+        "x": 2.2011598448934415,
+        "y": 6.189027260783297
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "TR_Step2_Final"
+      "linkedName": "TLM_Step3_Final"
     }
   ],
   "rotationTargets": [
     {
-      "waypointRelativePos": 0.5,
+      "waypointRelativePos": 1.2735849056603772,
       "rotationDegrees": 0.0
     },
     {
-      "waypointRelativePos": 2.3443396226415105,
+      "waypointRelativePos": 2.3349056603773652,
       "rotationDegrees": 0.0
     }
   ],
   "constraintZones": [],
-  "pointTowardsZones": [],
+  "pointTowardsZones": [
+    {
+      "fieldPosition": {
+        "x": 4.626,
+        "y": 4.021
+      },
+      "rotationOffset": 180.0,
+      "minWaypointRelativePos": 2.3913824057450643,
+      "maxWaypointRelativePos": 3.0,
+      "name": "Point Towards Zone"
+    }
+  ],
   "eventMarkers": [],
   "globalConstraints": {
     "maxVelocity": 1.0,
@@ -83,13 +94,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -143.543
+    "rotation": 145.543
   },
   "reversed": false,
-  "folder": "Auto_TrenchRight",
+  "folder": "Auto_TrenchLeft",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 91.08092418666061
+    "rotation": -90.0
   },
   "useDefaultConstraints": true
 }

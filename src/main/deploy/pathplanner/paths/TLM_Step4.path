@@ -3,48 +3,53 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 3.9205227272727265,
-        "y": 0.63375
+        "x": 2.0,
+        "y": 6.0
       },
       "prevControl": null,
       "nextControl": {
-        "x": 4.661357009972095,
-        "y": 0.6726209823809393
+        "x": 2.704318181818181,
+        "y": 6.725079545454546
       },
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "TLM_Step3_Final"
     },
     {
       "anchor": {
-        "x": 7.3629999999999995,
-        "y": 0.9944886363636363
+        "x": 3.673159090909091,
+        "y": 7.281647727272728
       },
       "prevControl": {
-        "x": 6.965242167368086,
-        "y": 0.7701416422788737
+        "x": 2.982602272727273,
+        "y": 7.116738636363636
       },
       "nextControl": {
-        "x": 7.834070548261188,
-        "y": 1.2601861357817261
+        "x": 4.1160749346392835,
+        "y": 7.387418675029192
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 7.795886363636363,
-        "y": 2.96309090909091
+        "x": 5.445931818181817,
+        "y": 7.281647727272728
       },
       "prevControl": {
-        "x": 7.75465909090909,
-        "y": 2.3343750000000014
+        "x": 4.940897727272727,
+        "y": 7.271340909090909
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "MeComiPelotasCentro"
+      "linkedName": "TLM_Step4_Final"
     }
   ],
-  "rotationTargets": [],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 0.3238993710691824,
+      "rotationDegrees": 0.0
+    }
+  ],
   "constraintZones": [],
   "pointTowardsZones": [],
   "eventMarkers": [],
@@ -58,13 +63,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 88.71267105875854
+    "rotation": 0.0
   },
   "reversed": false,
-  "folder": "PathPasados",
+  "folder": "Auto_TrenchLeft",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 0.4939168986187679
+    "rotation": 145.543
   },
   "useDefaultConstraints": true
 }
