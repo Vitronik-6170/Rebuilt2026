@@ -19,6 +19,12 @@
                 "data": {
                   "pathName": "TLM_Step2"
                 }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "TakeFuel"
+                }
               }
             ]
           }
@@ -27,6 +33,12 @@
           "type": "path",
           "data": {
             "pathName": "TLM_Step3"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Shoot"
           }
         },
         {
@@ -44,6 +56,12 @@
                 "data": {
                   "pathName": "TLM_Step5"
                 }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "TakeFuel"
+                }
               }
             ]
           }
@@ -52,6 +70,12 @@
           "type": "path",
           "data": {
             "pathName": "TLM_Step6"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Shoot"
           }
         }
       ]
