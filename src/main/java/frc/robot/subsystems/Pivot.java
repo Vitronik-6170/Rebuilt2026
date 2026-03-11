@@ -85,7 +85,11 @@ public class Pivot extends SubsystemBase {
   public void stop() {
     pivotMotor.stopMotor();
   }
-  
+  //Metodo para que quede en kCoast y no KBrake
+  public void setIdleMode(IdleMode mode){
+    pivotConfig.idleMode(mode); 
+    pivotMotor.configure(pivotConfig, ResetMode.kNoResetSafeParameters, PersistMode.kNoPersistParameters);
+  }
   /**
    * An example method querying a boolean state of the subsystem (for example, a digital sensor).
    *

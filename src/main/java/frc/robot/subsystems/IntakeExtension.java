@@ -13,6 +13,7 @@ import com.revrobotics.spark.SparkClosedLoopController;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.config.SparkMaxConfig;
+import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -88,11 +89,19 @@ public class IntakeExtension extends SubsystemBase {
   public boolean getLimitOInput() {
     return !limOInput.get();
   }
-  
+  public void setIdleMode(IdleMode mode){
+    extensionConfig.idleMode(mode); 
+    extensionMotor.configure(extensionConfig, ResetMode.kNoResetSafeParameters, PersistMode.kNoPersistParameters);
+  }
+
   public boolean atSetpoint() {
     return Math.abs(extensionEncoder.getPosition() 
         - Constants.IntakeConstants.kExtensionPositionExtended) 
         < Constants.IntakeConstants.kExtensionTolerance; // ej: 2.0 rotaciones
+  }
+  public void setSpeed(double speed){
+    extensionConfig.closedLoop.outputRange(-speed, speed);
+    extensionMotor.configure(extensionConfig, ResetMode.kNoResetSafeParameters, PersistMode.kNoPersistParameters);
   }
   @Override
   public void simulationPeriodic() {

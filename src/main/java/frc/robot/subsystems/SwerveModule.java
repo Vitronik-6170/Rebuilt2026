@@ -12,6 +12,8 @@ import com.revrobotics.spark.SparkClosedLoopController;
 import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.SparkBase.ControlType;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
+import com.revrobotics.spark.config.SparkMaxConfig;
+import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 import com.revrobotics.AbsoluteEncoder;
 import com.revrobotics.RelativeEncoder;
 import com.revrobotics.PersistMode;
@@ -84,6 +86,22 @@ public class SwerveModule {
     return new SwerveModulePosition(
         m_drivingEncoder.getPosition(),
         new Rotation2d(m_turningEncoder.getPosition() - m_chassisAngularOffset));
+  }
+
+  //Para poner kCoast 
+  public void setIdleMode(IdleMode driveMode, IdleMode turMode){
+    SparkMaxConfig driveUpdate = new SparkMaxConfig(); 
+    SparkMaxConfig turnUpdate = new SparkMaxConfig(); 
+
+    driveUpdate.idleMode(driveMode); 
+    turnUpdate.idleMode(turMode);
+
+    m_drivingSpark.configure(driveUpdate, 
+        ResetMode.kNoResetSafeParameters, 
+        PersistMode.kNoPersistParameters);
+    m_turningSpark.configure(turnUpdate, 
+        ResetMode.kNoResetSafeParameters, 
+        PersistMode.kNoPersistParameters);
   }
 
   /**

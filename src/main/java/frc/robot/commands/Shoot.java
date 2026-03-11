@@ -13,7 +13,6 @@ import frc.robot.subsystems.Shooter;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.wpilibj.Timer;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 
 /** An example command that uses an example subsystem. */
@@ -29,7 +28,7 @@ public class Shoot extends Command {
   private static final Translation2d HUB_POSITION = new Translation2d(4.625, 4.0345);
 
   private static final double[] kDistances = {
-    2.825,  // kPosition4 (centro) -> ( muy bien )
+    2.725,  // kPosition4 (centro) -> ( muy bien )
     3.279,  // kPosition3 (cerca trinchera izquierda)
     3.321  // kPosition5 (cerca trinchera derecha)
     //3.453,  // kPosition1 (trinchera izquierda)
@@ -73,6 +72,7 @@ public class Shoot extends Command {
     m_intakeRetracted = false;
     m_firingTimer.reset();
     m_firingTimer.stop();
+    m_intakeExtension.setSpeed(0.1);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -101,7 +101,7 @@ public class Shoot extends Command {
         m_firingTimer.reset();
         m_firingTimer.start();
       }
-      if (!m_intakeRetracted && m_firingTimer.hasElapsed(2.0)) {
+      if (!m_intakeRetracted && m_firingTimer.hasElapsed(0.2)) {
         m_intakeExtension.setExtensionPosition(0);
         m_intakeRetracted = true;
       }
@@ -110,12 +110,12 @@ public class Shoot extends Command {
     }
 
     // 5. Debug
-    SmartDashboard.putNumber("Shoot/Distance_m",     distance);
-    SmartDashboard.putNumber("Shoot/TargetAngle_rad", targetAngle);
-    SmartDashboard.putNumber("Shoot/TargetRPM",       targetRpm);
-    SmartDashboard.putBoolean("Shoot/PivotReady",     m_pivot.atSetpoint());
-    SmartDashboard.putBoolean("Shoot/ShooterReady",   m_shooter.atTargetRpm());
-    SmartDashboard.putBoolean("Shoot/Firing", m_pivot.atSetpoint() && m_shooter.atTargetRpm());
+    //SmartDashboard.putNumber("Shoot/Distance_m",     distance);
+    //SmartDashboard.putNumber("Shoot/TargetAngle_rad", targetAngle);
+    //SmartDashboard.putNumber("Shoot/TargetRPM",       targetRpm);
+    //SmartDashboard.putBoolean("Shoot/PivotReady",     m_pivot.atSetpoint());
+    //SmartDashboard.putBoolean("Shoot/ShooterReady",   m_shooter.atTargetRpm());
+    //SmartDashboard.putBoolean("Shoot/Firing", m_pivot.atSetpoint() && m_shooter.atTargetRpm());
     
     // m_pivot.setAngle(0.5);
     // m_shooter.shoot(2500);
@@ -128,6 +128,7 @@ public class Shoot extends Command {
     m_shooter.stop();
     m_feeder.stop();
     m_pivot.setAngle(Constants.PivotConstants.kMinAngleRad);
+    m_intakeExtension.setSpeed(0.9);
   }
 
   // Returns true when the command should end.

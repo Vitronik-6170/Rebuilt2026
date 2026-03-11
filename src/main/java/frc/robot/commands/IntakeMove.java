@@ -5,6 +5,7 @@
 package frc.robot.commands;
 
 import frc.robot.Constants;
+import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.IntakeExtension;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -14,22 +15,26 @@ public class IntakeMove extends Command {
   @SuppressWarnings("PMD.UnusedPrivateField")
   private final IntakeExtension m_IntakeExtension;
   private final Intake m_Intake;
+  private final DriveSubsystem m_drive;
 
   /**
    * Creates a new IntakeMove.
    *
    * @param subsystem The subsystem used by this command.
    */
-  public IntakeMove(IntakeExtension intakeExtension, Intake intake) {
+  public IntakeMove(IntakeExtension intakeExtension, Intake intake, DriveSubsystem drive) {
     m_IntakeExtension = intakeExtension;
     m_Intake = intake;
+    m_drive = drive;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(intakeExtension, intake);
   }
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {}
+  public void initialize() {
+    m_drive.setSlowMode(true);
+  }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
@@ -49,6 +54,7 @@ public class IntakeMove extends Command {
   @Override
   public void end(boolean interrupted) {
     m_Intake.stopIntake();
+    m_drive.setSlowMode(false);
   }
 
   // Returns true when the command should end.

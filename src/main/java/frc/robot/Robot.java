@@ -4,6 +4,8 @@
 
 package frc.robot;
 
+import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
+
 import edu.wpi.first.math.filter.SlewRateLimiter;
 import edu.wpi.first.wpilibj.PowerDistribution;
 import edu.wpi.first.wpilibj.PowerDistribution.ModuleType;
@@ -67,7 +69,12 @@ public class Robot extends TimedRobot {
 
   /** This function is called once each time the robot enters Disabled mode. */
   @Override
-  public void disabledInit() {}
+  public void disabledInit() {
+    m_robotContainer.m_Pivot.setIdleMode(IdleMode.kCoast);
+    m_robotContainer.m_IntakeExtension.setIdleMode(IdleMode.kCoast);
+     m_robotContainer.m_robotDrive.setIdleMode(IdleMode.kCoast, IdleMode.kCoast);
+    m_robotContainer.m_Pivot.setIdleMode(IdleMode.kCoast);
+  }
 
   @Override
   public void disabledPeriodic() {}
@@ -81,6 +88,10 @@ public class Robot extends TimedRobot {
     if (m_autonomousCommand != null) {
       m_autonomousCommand.schedule();
     }
+    m_robotContainer.m_Pivot.setIdleMode(IdleMode.kBrake);
+    m_robotContainer.m_IntakeExtension.setIdleMode(IdleMode.kBrake);
+    m_robotContainer.m_robotDrive.setIdleMode(IdleMode.kBrake, IdleMode.kBrake);
+    m_robotContainer.m_Pivot.setIdleMode(IdleMode.kBrake);
   }
 
   /** This function is called periodically during autonomous. */
@@ -96,6 +107,10 @@ public class Robot extends TimedRobot {
     if (m_autonomousCommand != null) {
       m_autonomousCommand.cancel();
     }
+    m_robotContainer.m_Pivot.setIdleMode(IdleMode.kBrake);
+    m_robotContainer.m_IntakeExtension.setIdleMode(IdleMode.kBrake);
+     m_robotContainer.m_robotDrive.setIdleMode(IdleMode.kBrake, IdleMode.kBrake);
+    m_robotContainer.m_Pivot.setIdleMode(IdleMode.kBrake);
   }
 
   /** This function is called periodically during operator control. */

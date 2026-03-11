@@ -18,6 +18,7 @@ import edu.wpi.first.math.kinematics.SwerveModuleState;
 import edu.wpi.first.math.numbers.N1;
 import edu.wpi.first.math.numbers.N3;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.Constants;
 import frc.robot.Constants.DriveConstants;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import com.pathplanner.lib.auto.AutoBuilder;
@@ -25,6 +26,7 @@ import com.pathplanner.lib.config.PIDConstants;
 import com.pathplanner.lib.config.RobotConfig;
 import com.pathplanner.lib.controllers.PPHolonomicDriveController;
 import com.pathplanner.lib.util.PathPlannerLogging;
+import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.smartdashboard.Field2d;
@@ -198,10 +200,14 @@ public void driveRobotRelative(ChassisSpeeds speeds) {
   public double getYawRateDegPerSec() {
     return m_gyro.getRate();
   }
+  private double m_speedMultiplier = Constants.DriveConstants.powerChassis;
 
+  public void setSlowMode(boolean slow) {
+    m_speedMultiplier = slow ? 0.1 : Constants.DriveConstants.powerChassis;
+  }
   public void drive(double xSpeed, double ySpeed, double rot, boolean fieldRelative) {
-    double xSpeedDelivered = xSpeed * DriveConstants.kMaxSpeedMetersPerSecond;
-    double ySpeedDelivered = ySpeed * DriveConstants.kMaxSpeedMetersPerSecond;
+    double xSpeedDelivered = xSpeed * DriveConstants.kMaxSpeedMetersPerSecond * m_speedMultiplier;
+    double ySpeedDelivered = ySpeed * DriveConstants.kMaxSpeedMetersPerSecond * m_speedMultiplier;
     double rotDelivered    = rot   * DriveConstants.kMaxAngularSpeed;
 
     var swerveModuleStates = DriveConstants.kDriveKinematics.toSwerveModuleStates(
@@ -233,6 +239,13 @@ public void driveRobotRelative(ChassisSpeeds speeds) {
     m_frontRight.setDesiredState(desiredStates[1]);
     m_rearLeft.setDesiredState(desiredStates[2]);
     m_rearRight.setDesiredState(desiredStates[3]);
+  }
+
+  public void setIdleMode(IdleMode driveMode, IdleMode turnMode){
+    m_frontLeft.setIdleMode(driveMode, turnMode);
+    m_frontRight.setIdleMode(driveMode, turnMode);
+    m_rearLeft.setIdleMode(driveMode, turnMode);
+    m_rearRight.setIdleMode(driveMode, turnMode); 
   }
 
   public void resetEncoders() {
