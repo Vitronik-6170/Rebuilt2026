@@ -11,7 +11,7 @@
     "PathPasados"
   ],
   "autoFolders": [],
-  "defaultMaxVel": 1.0,
+  "defaultMaxVel": 4.0,
   "defaultMaxAccel": 17.0,
   "defaultMaxAngVel": 500.0,
   "defaultMaxAngAccel": 600.0,
