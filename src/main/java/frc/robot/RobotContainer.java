@@ -87,7 +87,7 @@ public class RobotContainer {
                 () -> m_robotDrive.drive(
                 -MathUtil.applyDeadband(m_driverController.getLeftY()*Constants.DriveConstants.powerChassis, OIConstants.kDriveDeadband),
                 -MathUtil.applyDeadband(m_driverController.getLeftX()*Constants.DriveConstants.powerChassis, OIConstants.kDriveDeadband),
-                -MathUtil.applyDeadband(m_driverController.getRightX()*Constants.DriveConstants.powerChassis, OIConstants.kDriveDeadband),
+                -MathUtil.applyDeadband(m_driverController.getRightX(), OIConstants.kDriveDeadband),
                 true),
             m_robotDrive));
     // Auto chooser con PathPlanner
