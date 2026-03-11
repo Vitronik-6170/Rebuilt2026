@@ -4,10 +4,11 @@
   "holonomicMode": true,
   "pathFolders": [
     "Auto1_TD",
-    "Auto_TrenchLeft",
+    "Auto_TrenchLeftMejorad",
     "Auto_TrenchRight",
-    "Center",
     "Auto_TrenchRightMejorado",
+    "Center",
+    "Auto_TrenchLeft",
     "PathPasados"
   ],
   "autoFolders": [],

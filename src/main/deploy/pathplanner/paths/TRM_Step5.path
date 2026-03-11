@@ -16,16 +16,16 @@
     },
     {
       "anchor": {
-        "x": 7.301159090909091,
-        "y": 1.3346136363636367
+        "x": 6.919806818181818,
+        "y": 0.5203750000000003
       },
       "prevControl": {
-        "x": 6.89919318181818,
-        "y": 0.9120340909090909
+        "x": 6.517840909090907,
+        "y": 0.09779545454545446
       },
       "nextControl": {
-        "x": 7.639532172140045,
-        "y": 1.6903391832987416
+        "x": 7.258179899412772,
+        "y": 0.8761005469351051
       },
       "isLocked": false,
       "linkedName": "TR_Step2_F"
@@ -49,7 +49,7 @@
   "pointTowardsZones": [],
   "eventMarkers": [],
   "globalConstraints": {
-    "maxVelocity": 4.0,
+    "maxVelocity": 1.0,
     "maxAcceleration": 17.0,
     "maxAngularVelocity": 500.0,
     "maxAngularAcceleration": 600.0,

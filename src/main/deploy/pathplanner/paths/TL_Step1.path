@@ -3,29 +3,45 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 2.178670454545454,
-        "y": 3.1486136363636366
+        "x": 3.590704545454545,
+        "y": 7.43625
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.8282386363636363,
-        "y": 3.158920454545455
+        "x": 4.590704545454543,
+        "y": 7.43625
       },
       "isLocked": false,
-      "linkedName": "Preparar"
+      "linkedName": null
     },
     {
       "anchor": {
-        "x": 1.5293409090909087,
-        "y": 3.1486136363636366
+        "x": 6.352931818181818,
+        "y": 7.43625
       },
       "prevControl": {
-        "x": 1.9519204545454545,
-        "y": 3.1486136363636366
+        "x": 5.352931818181818,
+        "y": 7.43625
+      },
+      "nextControl": {
+        "x": 7.352931818181818,
+        "y": 7.43625
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 8.290613636363636,
+        "y": 5.179056818181818
+      },
+      "prevControl": {
+        "x": 8.331840909090909,
+        "y": 6.663238636363636
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "TL_Step1_Final"
     }
   ],
   "rotationTargets": [],
@@ -42,13 +58,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 0.0
+    "rotation": -91.5481576989781
   },
   "reversed": false,
-  "folder": "PathPasados",
+  "folder": "Auto_TrenchLeft",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 0.36262667396251513
+    "rotation": 0.0
   },
   "useDefaultConstraints": true
 }

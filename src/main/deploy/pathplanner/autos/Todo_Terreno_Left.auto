@@ -11,7 +11,7 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "TR_Step1"
+                  "pathName": "TL_Step1"
                 }
               },
               {
@@ -26,7 +26,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "TR_Step2"
+            "pathName": "TL_Step2"
           }
         },
         {
@@ -42,7 +42,7 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "TR_Step3"
+                  "pathName": "TL_Step3"
                 }
               },
               {
@@ -57,7 +57,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "TR_Step4"
+            "pathName": "TL_Step4"
           }
         },
         {
