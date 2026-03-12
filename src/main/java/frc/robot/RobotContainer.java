@@ -75,7 +75,7 @@ public class RobotContainer {
     );
 
     NamedCommands.registerCommand("TakeFuel", 
-        new IntakeMove(m_IntakeExtension, m_Intake)
+        new IntakeMove(m_IntakeExtension, m_Intake, m_robotDrive)
             .withTimeout(4.0)  // ← termina cuando ya tomó el fuel (ajusta el tiempo)
     );
     // Configurar botones
@@ -136,7 +136,7 @@ public class RobotContainer {
 
     // Intake (comer pelotas)
     m_mechanismController.a()
-        .whileTrue(new IntakeMove(m_IntakeExtension, m_Intake));
+        .whileTrue(new IntakeMove(m_IntakeExtension, m_Intake, m_robotDrive));
 
     // Intake (vomitar pelotas)
     m_mechanismController.b()
@@ -148,7 +148,7 @@ public class RobotContainer {
     
     // Shoot (desde el centro)
     m_mechanismController.leftBumper()
-        .whileTrue(new Jordan(m_Shooter, m_Feeder, m_Pivot));
+        .whileTrue(new Jordan(m_Shooter, m_Feeder, m_Pivot, m_IntakeExtension));
 
 }  
 
