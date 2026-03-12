@@ -3,32 +3,53 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 3.611,
-        "y": 4.0
+        "x": 3.580397727272727,
+        "y": 0.5925227272727271
       },
       "prevControl": null,
       "nextControl": {
-        "x": 3.1368863636363638,
-        "y": 3.973159090909091
+        "x": 4.580397727272723,
+        "y": 0.5925227272727271
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 1.7,
-        "y": 4.0
+        "x": 6.033420454545454,
+        "y": 0.5925227272727271
       },
       "prevControl": {
-        "x": 2.2977954545454544,
-        "y": 4.014386363636364
+        "x": 5.394397727272726,
+        "y": 0.5512954545454546
+      },
+      "nextControl": {
+        "x": 6.47748449490499,
+        "y": 0.6211720201991487
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 8.239079545454544,
+        "y": 1.272772727272727
+      },
+      "prevControl": {
+        "x": 8.239079545454544,
+        "y": 0.5100681818181816
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "Center_Step1_Final"
+      "linkedName": "AutoJR_Step2"
     }
   ],
-  "rotationTargets": [],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 1.0,
+      "rotationDegrees": 0.0
+    }
+  ],
   "constraintZones": [],
   "pointTowardsZones": [],
   "eventMarkers": [],
@@ -45,7 +66,7 @@
     "rotation": 180.0
   },
   "reversed": false,
-  "folder": "Center",
+  "folder": "AutoJordan_Right",
   "idealStartingState": {
     "velocity": 0,
     "rotation": 0.0

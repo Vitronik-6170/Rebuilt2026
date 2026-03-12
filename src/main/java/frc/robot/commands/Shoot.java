@@ -72,7 +72,7 @@ public class Shoot extends Command {
     m_intakeRetracted = false;
     m_firingTimer.reset();
     m_firingTimer.stop();
-    m_intakeExtension.setSpeed(0.1);
+    m_intakeExtension.setSpeed(0.3);
   }
 
   // Called every time the scheduler runs while the command is scheduled.

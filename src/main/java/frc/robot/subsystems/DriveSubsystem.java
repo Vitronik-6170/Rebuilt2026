@@ -203,7 +203,7 @@ public void driveRobotRelative(ChassisSpeeds speeds) {
   private double m_speedMultiplier = Constants.DriveConstants.powerChassis;
 
   public void setSlowMode(boolean slow) {
-    m_speedMultiplier = slow ? 0.1 : Constants.DriveConstants.powerChassis;
+    m_speedMultiplier = slow ? 0.3 : Constants.DriveConstants.powerChassis;
   }
   public void drive(double xSpeed, double ySpeed, double rot, boolean fieldRelative) {
     double xSpeedDelivered = xSpeed * DriveConstants.kMaxSpeedMetersPerSecond * m_speedMultiplier;

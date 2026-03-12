@@ -7,7 +7,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Center_Step1"
+            "pathName": "AutoH_Step1"
           }
         },
         {
@@ -29,7 +29,7 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "Center_Step2"
+                  "pathName": "AutoH_Step2"
                 }
               }
             ]
@@ -38,7 +38,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Center_Step3"
+            "pathName": "AutoH_Step3"
           }
         },
         {

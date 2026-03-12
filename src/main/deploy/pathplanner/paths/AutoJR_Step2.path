@@ -3,29 +3,29 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 3.611,
-        "y": 4.0
+        "x": 8.239079545454544,
+        "y": 1.272772727272727
       },
       "prevControl": null,
       "nextControl": {
-        "x": 3.1368863636363638,
-        "y": 3.973159090909091
+        "x": 8.249386363636361,
+        "y": 2.344681818181817
       },
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "AutoJR_Step2"
     },
     {
       "anchor": {
-        "x": 1.7,
-        "y": 4.0
+        "x": 8.239079545454544,
+        "y": 6.209738636363636
       },
       "prevControl": {
-        "x": 2.2977954545454544,
-        "y": 4.014386363636364
+        "x": 8.239079545454544,
+        "y": 5.416113636363637
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "Center_Step1_Final"
+      "linkedName": null
     }
   ],
   "rotationTargets": [],
@@ -42,13 +42,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 180.0
+    "rotation": -178.80651057601796
   },
   "reversed": false,
-  "folder": "Center",
+  "folder": "AutoJordan_Right",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 0.0
+    "rotation": 180.0
   },
   "useDefaultConstraints": true
 }

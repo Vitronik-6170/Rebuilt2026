@@ -35,7 +35,6 @@ public class LimelightSubsystem extends SubsystemBase {
             0, 0, 0, 0, 0        // rates los dejamos en 0, no son necesarios
         );
 
-        // Obtenemos la pose de MT1 (más estable en tu caso)
         /*LimelightHelpers.PoseEstimate mt1 =
             LimelightHelpers.getBotPoseEstimate_wpiBlue(m_limelightName);*/
 
@@ -73,7 +72,7 @@ public class LimelightSubsystem extends SubsystemBase {
         // Más lejos o menos tags = std dev más alto = menos confianza
         double xyStdDev = 0.3 * (mt1.avgTagDist * mt1.avgTagDist) / mt1.tagCount;
 
-        // ── Mandamos la medición al PoseEstimator ──────────────────────
+        // ── Se manda  la medición al PoseEstimator ──────────────────────
         m_drive.addVisionMeasurement(
             mt1.pose,
             mt1.timestampSeconds,
