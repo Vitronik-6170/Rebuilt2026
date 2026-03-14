@@ -74,7 +74,7 @@
   "pointTowardsZones": [],
   "eventMarkers": [],
   "globalConstraints": {
-    "maxVelocity": 1.0,
+    "maxVelocity": 2.0,
     "maxAcceleration": 17.0,
     "maxAngularVelocity": 500.0,
     "maxAngularAcceleration": 600.0,
@@ -83,7 +83,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -143.543
+    "rotation": -140.0
   },
   "reversed": false,
   "folder": "Auto_TrenchRight",

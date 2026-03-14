@@ -54,7 +54,7 @@
   "pointTowardsZones": [],
   "eventMarkers": [],
   "globalConstraints": {
-    "maxVelocity": 1.0,
+    "maxVelocity": 2.0,
     "maxAcceleration": 17.0,
     "maxAngularVelocity": 500.0,
     "maxAngularAcceleration": 600.0,
@@ -69,7 +69,7 @@
   "folder": "Auto_TrenchRightMejorado",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": -143.543
+    "rotation": -140.0
   },
   "useDefaultConstraints": true
 }

@@ -3,13 +3,13 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 3.683465909090909,
-        "y": 0.6028295454545458
+        "x": 3.6010113636363634,
+        "y": 0.6131363636363643
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.7352386363636363,
-        "y": 0.9841818181818192
+        "x": 2.487875,
+        "y": 0.8398863636363638
       },
       "isLocked": false,
       "linkedName": null
@@ -20,12 +20,12 @@
         "y": 2.0
       },
       "prevControl": {
-        "x": 2.4157272727272727,
-        "y": 1.2315454545454543
+        "x": 2.4775681818181816,
+        "y": 1.1181704545454545
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "AutoH_Step1_Final"
+      "linkedName": null
     }
   ],
   "rotationTargets": [],
@@ -45,7 +45,7 @@
     "rotation": -140.0
   },
   "reversed": false,
-  "folder": "Auto_Human",
+  "folder": "Derecha_Auto",
   "idealStartingState": {
     "velocity": 0,
     "rotation": 0.0

@@ -38,7 +38,7 @@ public class Shoot extends Command {
   private static final double[] kAngles    = { 0.0, 0.5, 0.55};
 
   // RPM del flywheel para cada distancia (calibradas con el ángulo de arriba)
-  private static final double[] kRpms = { 2400, 2550, 2500};
+  private static final double[] kRpms = { 2400, 2650, 2650};
 
   // RPM del feeder — constante, solo alimenta cuando el shooter está listo
   private static final double kFeederRpm = 4000;
@@ -62,7 +62,7 @@ public class Shoot extends Command {
     m_intakeExtension = intakeExtension; 
 
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(shooter,feeder,pivot,intakeExtension);
+    addRequirements(shooter,feeder,pivot);
   }
 
   // Called when the command is initially scheduled.
@@ -72,7 +72,7 @@ public class Shoot extends Command {
     m_intakeRetracted = false;
     m_firingTimer.reset();
     m_firingTimer.stop();
-    m_intakeExtension.setSpeed(0.3);
+    //m_intakeExtension.setSpeed(0.3);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -128,7 +128,7 @@ public class Shoot extends Command {
     m_shooter.stop();
     m_feeder.stop();
     m_pivot.setAngle(Constants.PivotConstants.kMinAngleRad);
-    m_intakeExtension.setSpeed(0.9);
+    //m_intakeExtension.setSpeed(0.9);
   }
 
   // Returns true when the command should end.

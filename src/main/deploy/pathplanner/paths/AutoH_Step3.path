@@ -9,7 +9,7 @@
       "prevControl": null,
       "nextControl": {
         "x": 1.3785454132332826,
-        "y": 1.144277836261444
+        "y": 1.1442778362614439
       },
       "isLocked": false,
       "linkedName": "AutoH_Step2_Final"
@@ -33,7 +33,7 @@
   "pointTowardsZones": [],
   "eventMarkers": [],
   "globalConstraints": {
-    "maxVelocity": 1.0,
+    "maxVelocity": 2.0,
     "maxAcceleration": 17.0,
     "maxAngularVelocity": 500.0,
     "maxAngularAcceleration": 600.0,
@@ -42,7 +42,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -143.543
+    "rotation": -140.0
   },
   "reversed": false,
   "folder": "Auto_Human",

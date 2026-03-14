@@ -71,12 +71,12 @@ public class RobotContainer {
         // En RobotContainer, donde registras los comandos de PathPlanner
     NamedCommands.registerCommand("Shoot", 
         new Shoot(m_Shooter, m_Feeder, m_Pivot, m_robotDrive, m_IntakeExtension)
-            .withTimeout(3.0)  // ← termina después de 3 segundos
+            .withTimeout(15.0)  // ← termina después de 3 segundos
     );
 
     NamedCommands.registerCommand("TakeFuel", 
         new IntakeMove(m_IntakeExtension, m_Intake, m_robotDrive)
-            .withTimeout(4.0)  // ← termina cuando ya tomó el fuel (ajusta el tiempo)
+            .withTimeout(4.5)  // ← termina cuando ya tomó el fuel (ajusta el tiempo)
     );
     // Configurar botones
     configureBindings();

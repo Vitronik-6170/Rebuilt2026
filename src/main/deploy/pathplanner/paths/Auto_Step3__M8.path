@@ -3,70 +3,66 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 8.197852272727271,
-        "y": 3.0043181818181823
+        "x": 3.2196590909090905,
+        "y": 7.322875
       },
       "prevControl": null,
       "nextControl": {
-        "x": 8.21846590909091,
-        "y": 2.1488522727272734
+        "x": 4.21965909090909,
+        "y": 7.322875
       },
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "Auto_Step2_Final"
     },
     {
       "anchor": {
-        "x": 6.466306818181818,
-        "y": 0.7574318181818183
+        "x": 5.837590909090909,
+        "y": 7.322875
       },
       "prevControl": {
-        "x": 6.950727272727272,
-        "y": 1.035715909090909
+        "x": 5.2810227272727275,
+        "y": 7.333181818181819
       },
       "nextControl": {
-        "x": 5.962964822801601,
-        "y": 0.4682779059421196
+        "x": 6.270525727557166,
+        "y": 7.31485768854692
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 3.7040795454545448,
-        "y": 0.5616022727272729
+        "x": 7.332079545454545,
+        "y": 7.04459090909091
       },
       "prevControl": {
-        "x": 4.817215909090908,
-        "y": 0.5100681818181818
+        "x": 6.9507272727272715,
+        "y": 7.353795454545456
       },
       "nextControl": {
-        "x": 3.0345364533323544,
-        "y": 0.5925996381033004
+        "x": 7.705534767470816,
+        "y": 6.7417893777263656
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 2.0,
-        "y": 2.0
+        "x": 7.888647727272726,
+        "y": 4.921386363636364
       },
       "prevControl": {
-        "x": 1.7457840909090914,
-        "y": 1.8190340909090912
+        "x": 7.898954545454545,
+        "y": 5.5913295454545455
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "TR_Step2_Final"
+      "linkedName": "Auto_Step3_Final"
     }
   ],
   "rotationTargets": [
     {
-      "waypointRelativePos": 0.5,
-      "rotationDegrees": 0.0
-    },
-    {
-      "waypointRelativePos": 2.3443396226415105,
+      "waypointRelativePos": 1.1556603773584904,
       "rotationDegrees": 0.0
     }
   ],
@@ -83,13 +79,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -140.0
+    "rotation": -90.0
   },
   "reversed": false,
-  "folder": "Auto_TrenchRight",
+  "folder": "Auto_DispararEIr",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 91.08092418666061
+    "rotation": 0.0
   },
   "useDefaultConstraints": true
 }

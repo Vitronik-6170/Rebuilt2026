@@ -99,7 +99,7 @@ public final class Constants {
     // Driving Parameters - Note that these are not the maximum capable speeds of
     // the robot, rather the allowed maximum speeds
     public static final double kMaxSpeedMetersPerSecond = 10;
-    public static final double powerChassis = 0.5;
+    public static final double powerChassis = 0.75;
     public static final double kMaxAngularSpeed = 2 * Math.PI; // radians per second
 
     // Chassis configuration
@@ -181,7 +181,7 @@ public final class Constants {
     public static final Pose2d kPosition2 = new Pose2d( 3.292, 0.780, Rotation2d.fromDegrees(-113.869)); // Trinchera derecha
     public static final Pose2d kPosition3 = new Pose2d(2.0, 6.0, Rotation2d.fromDegrees(145.543)); // Cerca de la trinchera izquierda 
     public static final Pose2d kPosition4 = new Pose2d(1.7, 4, Rotation2d.fromDegrees(180)); // En medio
-    public static final Pose2d kPosition5 = new Pose2d(2.0, 2.0, Rotation2d.fromDegrees(-143.543)); // Cerca de la trinchera derecha
+    public static final Pose2d kPosition5 = new Pose2d(2.0, 2.0, Rotation2d.fromDegrees(-140)); // Cerca de la trinchera derecha
     public static final Pose2d kHuman = new Pose2d(0.874, 0.623, Rotation2d.fromDegrees(180)); // Para ir al human
     public static final Pose2d kEndGame= new Pose2d(1.498, 3.911, Rotation2d.fromDegrees(0)); // Endgame 
 

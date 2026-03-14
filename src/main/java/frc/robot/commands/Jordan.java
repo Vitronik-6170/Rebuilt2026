@@ -43,7 +43,7 @@ public class Jordan extends Command {
     m_intakeRetracted = false;
     m_firingTimer.reset();
     m_firingTimer.stop();
-    m_intakeExtension.setSpeed(0.1);
+   // m_intakeExtension.setSpeed(0.1);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -75,7 +75,7 @@ public class Jordan extends Command {
     m_feeder.stop();
     m_shooter.stop();
     m_pivot.setAngle(0);
-    m_intakeExtension.setSpeed(0.9);
+    //m_intakeExtension.setSpeed(0.9);
   }
 
   // Returns true when the command should end.

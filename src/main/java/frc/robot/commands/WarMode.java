@@ -26,7 +26,7 @@ public class WarMode extends Command {
     m_IntakeExtension = intakeExtension; 
 
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(pivot,intakeExtension);
+    addRequirements(intakeExtension);
   }
 
   // Called when the command is initially scheduled.
